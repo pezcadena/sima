@@ -7,6 +7,7 @@ import { HomeStudentComponent } from './pages/student/home-student/home-student.
 import { NavbarStudentComponent } from './components/navbar-student/navbar-student.component';
 import { IndexStudentComponent } from './components/index-student/index-student.component';
 import { CardSubjectComponent } from './components/card-subject/card-subject.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CardSubjectComponent } from './components/card-subject/card-subject.com
     HomeStudentComponent,
     NavbarStudentComponent,
     IndexStudentComponent,
-    CardSubjectComponent
+    CardSubjectComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

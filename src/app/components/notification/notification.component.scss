@@ -1,0 +1,19 @@
+.activaNoti{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    transition: .5s all;
+}
+
+.activaNoti:hover{
+    text-decoration: underline;
+}
+
+.hovCardNoti{
+    transition: .5s all;
+}
+.hovCardNoti:hover{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}

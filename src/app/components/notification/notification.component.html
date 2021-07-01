@@ -1,0 +1,12 @@
+<div class="card hovCardNoti mb-2" [ngClass]="notification.active ? 'activaNoti':''">
+    <div class="card-body">
+        <div class="row align-items-center">
+            <div class="col-auto">
+                <img style="width: 4rem;" src="assets/img/idea.png" alt="">
+            </div>
+            <div class="col">
+                <small>{{notification.message}}</small>
+            </div>
+        </div>
+    </div>
+</div>
