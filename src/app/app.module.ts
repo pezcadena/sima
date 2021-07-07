@@ -8,6 +8,10 @@ import { NavbarStudentComponent } from './components/navbar-student/navbar-stude
 import { IndexStudentComponent } from './components/index-student/index-student.component';
 import { CardSubjectComponent } from './components/card-subject/card-subject.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { HomeProfessorComponent } from './pages/professor/home-professor/home-professor.component';
+import { NavbarProfessorComponent } from './components/navbar-professor/navbar-professor.component';
+import { CardGroupComponent } from './components/card-group/card-group.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { NotificationComponent } from './components/notification/notification.co
     NavbarStudentComponent,
     IndexStudentComponent,
     CardSubjectComponent,
-    NotificationComponent
+    NotificationComponent,
+    HomeProfessorComponent,
+    NavbarProfessorComponent,
+    CardGroupComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

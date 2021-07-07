@@ -1,0 +1,22 @@
+<div class="card hovCard shadow">
+    <div class="card-body">
+        <div class="card-title row mb-0">
+            <div class="col-auto">
+                <h5 class="text-primary fw-bold">{{group.name}}</h5>
+            </div>
+            <div class="col" style="text-align: end;">
+                <small class="fw-light">Promedio: {{group.contentComplete}} de {{group.contentTotal}} contenidos</small>
+            </div>
+        </div>
+        <h6 class="card-subtitle mb-2 text-muted ">Alumnos: {{group.students}}</h6>
+        <div class="border 
+            border-primary 
+            border-2 rounded-pill"
+            style="height: 1rem;">
+            <div class="rounded-pill bg-primary"
+            style="height: 101%;" [ngStyle]="{width:progress+'%'}">
+
+            </div>
+        </div>
+    </div>
+</div>
