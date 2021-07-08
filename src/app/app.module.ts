@@ -12,6 +12,8 @@ import { HomeProfessorComponent } from './pages/professor/home-professor/home-pr
 import { NavbarProfessorComponent } from './components/navbar-professor/navbar-professor.component';
 import { CardGroupComponent } from './components/card-group/card-group.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { RecoverComponent } from './pages/recover/recover.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { LoginComponent } from './pages/login/login.component';
     NavbarProfessorComponent,
     CardGroupComponent,
     LoginComponent,
+    RegisterComponent,
+    RecoverComponent,
   ],
   imports: [
     BrowserModule,

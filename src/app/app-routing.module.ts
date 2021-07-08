@@ -3,10 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeStudentComponent } from './pages/student/home-student/home-student.component';
 import { HomeProfessorComponent } from './pages/professor/home-professor/home-professor.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { RecoverComponent } from './pages/recover/recover.component';
 
 const routes: Routes = [
   {
     path: 'login', component:LoginComponent
+  },
+  {
+    path: 'register', component:RegisterComponent
+  },
+  {
+    path: 'recover', component:RecoverComponent
   },
   {
     path: 'homeStudent', component:HomeStudentComponent
