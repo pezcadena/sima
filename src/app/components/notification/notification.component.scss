@@ -1,5 +1,5 @@
 .activaNoti{
-    background-color: blue;
+    background-color: var(--bs-primary);
     color: white;
     cursor: pointer;
     transition: .5s all;
@@ -13,7 +13,7 @@
     transition: .5s all;
 }
 .hovCardNoti:hover{
-    background-color: blue;
+    background-color: var(--bs-primary);
     color: white;
     cursor: pointer;
 }

@@ -1,7 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+
+$primary: #00b5e2;
+$secondary: #003b5c;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary":  $secondary
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 body{
     font-family: 'Poppins', sans-serif;
     background-color: #FBFDFF;
 }
+
