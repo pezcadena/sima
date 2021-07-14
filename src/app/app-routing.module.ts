@@ -6,6 +6,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RecoverComponent } from './pages/recover/recover.component';
 import { SubjectStudentComponent } from './pages/student/subject-student/subject-student.component';
+import { GroupComponent } from './pages/professor/group/group.component';
+import { StudentComponent } from './pages/professor/student/student.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,12 @@ const routes: Routes = [
   },
   {
     path: 'homeProfessor', component:HomeProfessorComponent
+  },
+  {
+    path: 'homeProfessor/group', component:GroupComponent
+  },
+  {
+    path: 'homeProfessor/group/student', component:StudentComponent
   },
   {
     path: '**', pathMatch: 'full', redirectTo: 'homeStudent'

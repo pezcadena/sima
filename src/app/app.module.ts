@@ -18,6 +18,8 @@ import { SubjectStudentComponent } from './pages/student/subject-student/subject
 import { CardContentComponent } from './components/card-content/card-content.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { BadgeComponent } from './components/badge/badge.component';
+import { GroupComponent } from './pages/professor/group/group.component';
+import { StudentComponent } from './pages/professor/student/student.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { BadgeComponent } from './components/badge/badge.component';
     CardContentComponent,
     RatingComponent,
     BadgeComponent,
+    GroupComponent,
+    StudentComponent,
   ],
   imports: [
     BrowserModule,
