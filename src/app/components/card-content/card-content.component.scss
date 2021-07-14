@@ -1,0 +1,11 @@
+.hovCard{
+    transition: .5s all;
+}
+
+.hovCard:hover{
+    border-style: solid;
+    border-color: var(--bs-primary);
+    border-width: 1px;
+    background-color: #FBFDFF;
+    cursor: pointer;
+}

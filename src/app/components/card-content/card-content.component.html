@@ -1,0 +1,14 @@
+<div class="card hovCard shadow">
+    <div class="row align-items-center pe-0">
+        <div class="col">
+            <div class="card-body">
+                <h5 class="text-secondary fw-bold">{{content.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted ">{{content.length}} min</h6>
+            </div>
+        </div>
+        <div class="col-auto" style="position: relative;">
+            <small class="badge bg-secondary" style="position: absolute;top: 0rem;right: .8rem;">{{content.type}}</small>
+            <img style="height: 6rem;" [src]="content.preview" class="img-fluid rounded-end" alt="...">
+        </div>
+    </div>
+</div>

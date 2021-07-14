@@ -5,6 +5,7 @@ import { HomeProfessorComponent } from './pages/professor/home-professor/home-pr
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RecoverComponent } from './pages/recover/recover.component';
+import { SubjectStudentComponent } from './pages/student/subject-student/subject-student.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,9 @@ const routes: Routes = [
   },
   {
     path: 'homeStudent', component:HomeStudentComponent
+  },
+  {
+    path: 'homeStudent/subject', component:SubjectStudentComponent
   },
   {
     path: 'homeProfessor', component:HomeProfessorComponent

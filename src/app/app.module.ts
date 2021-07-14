@@ -14,6 +14,10 @@ import { CardGroupComponent } from './components/card-group/card-group.component
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RecoverComponent } from './pages/recover/recover.component';
+import { SubjectStudentComponent } from './pages/student/subject-student/subject-student.component';
+import { CardContentComponent } from './components/card-content/card-content.component';
+import { RatingComponent } from './components/rating/rating.component';
+import { BadgeComponent } from './components/badge/badge.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,10 @@ import { RecoverComponent } from './pages/recover/recover.component';
     LoginComponent,
     RegisterComponent,
     RecoverComponent,
+    SubjectStudentComponent,
+    CardContentComponent,
+    RatingComponent,
+    BadgeComponent,
   ],
   imports: [
     BrowserModule,
