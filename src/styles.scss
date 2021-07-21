@@ -2,10 +2,12 @@
 
 $primary: #00b5e2;
 $secondary: #003b5c;
+$info:#EDD1B0;
 
 $theme-colors: (
   "primary": $primary,
-  "secondary":  $secondary
+  "secondary":  $secondary,
+  "info": $info
 );
 
 @import "../node_modules/bootstrap/scss/bootstrap";

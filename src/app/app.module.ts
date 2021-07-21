@@ -20,6 +20,7 @@ import { RatingComponent } from './components/rating/rating.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { GroupComponent } from './pages/professor/group/group.component';
 import { StudentComponent } from './pages/professor/student/student.component';
+import { TextContentComponent } from './pages/student/contents/text-content/text-content.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { StudentComponent } from './pages/professor/student/student.component';
     BadgeComponent,
     GroupComponent,
     StudentComponent,
+    TextContentComponent,
   ],
   imports: [
     BrowserModule,

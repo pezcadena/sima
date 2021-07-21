@@ -8,6 +8,7 @@ import { RecoverComponent } from './pages/recover/recover.component';
 import { SubjectStudentComponent } from './pages/student/subject-student/subject-student.component';
 import { GroupComponent } from './pages/professor/group/group.component';
 import { StudentComponent } from './pages/professor/student/student.component';
+import { TextContentComponent } from './pages/student/contents/text-content/text-content.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,9 @@ const routes: Routes = [
   },
   {
     path: 'homeStudent/subject', component:SubjectStudentComponent
+  },
+  {
+    path: 'homeStudent/subject/contents/text', component:TextContentComponent
   },
   {
     path: 'homeProfessor', component:HomeProfessorComponent
