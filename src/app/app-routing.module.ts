@@ -9,6 +9,7 @@ import { SubjectStudentComponent } from './pages/student/subject-student/subject
 import { GroupComponent } from './pages/professor/group/group.component';
 import { StudentComponent } from './pages/professor/student/student.component';
 import { TextContentComponent } from './pages/student/contents/text-content/text-content.component';
+import { VideoContentComponent } from './pages/student/contents/video-content/video-content.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,9 @@ const routes: Routes = [
   },
   {
     path: 'homeStudent/subject/contents/text', component:TextContentComponent
+  },
+  {
+    path: 'homeStudent/subject/contents/video', component:VideoContentComponent
   },
   {
     path: 'homeProfessor', component:HomeProfessorComponent

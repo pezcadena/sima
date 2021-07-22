@@ -21,6 +21,8 @@ import { BadgeComponent } from './components/badge/badge.component';
 import { GroupComponent } from './pages/professor/group/group.component';
 import { StudentComponent } from './pages/professor/student/student.component';
 import { TextContentComponent } from './pages/student/contents/text-content/text-content.component';
+import { VideoContentComponent } from './pages/student/contents/video-content/video-content.component';
+import { TestComponent } from './pages/student/contents/test/test.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { TextContentComponent } from './pages/student/contents/text-content/text
     GroupComponent,
     StudentComponent,
     TextContentComponent,
+    VideoContentComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
