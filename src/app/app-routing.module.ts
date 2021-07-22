@@ -10,6 +10,7 @@ import { GroupComponent } from './pages/professor/group/group.component';
 import { StudentComponent } from './pages/professor/student/student.component';
 import { TextContentComponent } from './pages/student/contents/text-content/text-content.component';
 import { VideoContentComponent } from './pages/student/contents/video-content/video-content.component';
+import { TestComponent } from './pages/student/contents/test/test.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,9 @@ const routes: Routes = [
   },
   {
     path: 'homeStudent/subject/contents/video', component:VideoContentComponent
+  },
+  {
+    path: 'homeStudent/subject/test', component:TestComponent
   },
   {
     path: 'homeProfessor', component:HomeProfessorComponent
