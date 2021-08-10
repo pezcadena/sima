@@ -26,7 +26,7 @@ const routes: Routes = [
     path: 'homeStudent', component:HomeStudentComponent
   },
   {
-    path: 'homeStudent/subject', component:SubjectStudentComponent
+    path: 'subject/:subject', component:SubjectStudentComponent
   },
   {
     path: 'homeStudent/subject/contents/text', component:TextContentComponent

@@ -29,7 +29,7 @@
             <h2 class="fw-bold text-secondary mt-4">Materias</h2>
             
             <div *ngFor="let subject of subjects" class="mb-2">
-                <app-card-subject [subject]="subject"></app-card-subject>
+                <app-card-subject [routerLink]="['/subject',subject.id]" [subject]="subject"></app-card-subject>
             </div>
         </div>
     </div>

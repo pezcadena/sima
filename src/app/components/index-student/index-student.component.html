@@ -1,19 +1,11 @@
 <div class="container p-2 pt-4">
     <h5 class="fw-bold text-secondary">Índice</h5>
-    <a href="" class="fw-bold text-primary">Lenguaje y Deducción Matemática</a>
-    <ul class="p-2" style="list-style: none;">
-        <li><a class="text-primary" href="">Proposiciones</a></li>
-        <li><a href="">Tautologías</a></li>
-        <li><a href="">Equivalencias</a></li>
-        <li><a href="">Razonamientos</a></li>
-        <li><a href="">Metodos de Demostración</a></li>
-    </ul>
-    <a href="" class="fw-bold">Introducción de la Teoria de Conjuntos</a>
-    <ul class="p-2" style="list-style: none;">
-        <li><a class="" href="">Proposiciones</a></li>
-        <li><a href="">Tautologías</a></li>
-        <li><a href="">Equivalencias</a></li>
-        <li><a href="">Razonamientos</a></li>
-        <li><a href="">Metodos de Demostración</a></li>
-    </ul>
+    <div *ngFor="let section of subject?.sections">
+        <a href="" class="fw-bold text-primary">{{section.name}}</a>
+        <ul class="p-2" style="list-style: none;">
+            <li *ngFor="let part of section.parts; let i = index" class="mb-2">
+                <a [ngClass]="i == selection ? 'text-primary':'text-dark'" (click)="select(i)" >{{part}}</a>
+            </li>
+        </ul>
+    </div>
 </div>
