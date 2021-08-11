@@ -6,7 +6,7 @@
     <div class="col-10 px-0" [ngClass]="sepia ? 'bg-info':''">
         <div class="p-4">
             <div class="row">
-                <div class="col-auto"><h2 class="fw-bold text-primary">{{content[0]?.name}}</h2></div>
+                <div class="col-auto"><h2 class="fw-bold text-primary">{{content.name}}</h2></div>
                 <div class="col-auto">
                     <img style="width: 2rem;" class="boton" src="assets/img/como.png" alt="">
                 </div>
@@ -19,9 +19,10 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <h5 class="text-primary">Fuentes</h5>
+                    <app-selector [idc]="idc"></app-selector>
+                    <h5 class="text-primary mt-3 fw-bold">Fuentes</h5>
                     <ul class="p-1">
-                        <li *ngFor="let reference of content[0]?.references">
+                        <li *ngFor="let reference of content.references">
                             <small>{{reference}}</small>
                         </li>
                     </ul>

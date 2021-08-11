@@ -23,6 +23,19 @@ import { StudentComponent } from './pages/professor/student/student.component';
 import { TextContentComponent } from './pages/student/contents/text-content/text-content.component';
 import { VideoContentComponent } from './pages/student/contents/video-content/video-content.component';
 import { TestComponent } from './pages/student/contents/test/test.component';
+import { T111Component } from './contents/text/t111/t111.component';
+import { SelectorComponent } from './contents/text/selector/selector.component';
+import { T121Component } from './contents/text/t121/t121.component';
+import { T131Component } from './contents/text/t131/t131.component';
+import { T141Component } from './contents/text/t141/t141.component';
+import { T151Component } from './contents/text/t151/t151.component';
+import { T161Component } from './contents/text/t161/t161.component';
+import { T171Component } from './contents/text/t171/t171.component';
+import { T181Component } from './contents/text/t181/t181.component';
+import { T191Component } from './contents/text/t191/t191.component';
+import { T1101Component } from './contents/text/t1101/t1101.component';
+import { T1111Component } from './contents/text/t1111/t1111.component';
+import { T1121Component } from './contents/text/t1121/t1121.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +60,19 @@ import { TestComponent } from './pages/student/contents/test/test.component';
     TextContentComponent,
     VideoContentComponent,
     TestComponent,
+    T111Component,
+    SelectorComponent,
+    T121Component,
+    T131Component,
+    T141Component,
+    T151Component,
+    T161Component,
+    T171Component,
+    T181Component,
+    T191Component,
+    T1101Component,
+    T1111Component,
+    T1121Component,
   ],
   imports: [
     BrowserModule,

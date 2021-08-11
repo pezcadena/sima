@@ -12,6 +12,7 @@ export class TextContentComponent implements OnInit {
   sepia:boolean=false;
   subject:any;
   content:any;
+  idc:number=111;
 
   constructor(private activatedRoute: ActivatedRoute, private subjects: SubjectsService) { }
 
@@ -20,6 +21,9 @@ export class TextContentComponent implements OnInit {
       console.log("params",params);
       this.subject = this.subjects.getSubject(params.subject);
       this.content = this.subjects.getContenidos(params.idc);
+      console.log("content",this.content);
+      
+      this.idc = params.idc;
     })
   }
 
