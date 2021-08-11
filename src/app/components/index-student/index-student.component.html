@@ -4,7 +4,7 @@
         <a href="" class="fw-bold text-primary">{{section.name}}</a>
         <ul class="p-2" style="list-style: none;">
             <li *ngFor="let part of section.parts; let i = index" class="mb-2">
-                <a [ngClass]="i == selection ? 'text-primary':'text-dark'" (click)="select(i)" >{{part}}</a>
+                <a [ngClass]="i == selection ? 'text-primary':'text-dark'" (click)="select(i,false)" >{{part}}</a>
             </li>
         </ul>
     </div>

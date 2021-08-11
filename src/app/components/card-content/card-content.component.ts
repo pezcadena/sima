@@ -15,9 +15,25 @@ export class CardContentComponent implements OnInit {
     length:10
   }
 
+  type:string="";
+
   constructor() { }
 
   ngOnInit(): void {
+    switch (this.content.type) {
+      case "Texto":
+        this.type="text";
+        break;
+      case "Video":
+        this.type="video";
+        break;
+      case "Imagen":
+        this.type="image";
+        break;
+      default:
+        this.type="nothing";
+        break;
+    }
   }
 
 }

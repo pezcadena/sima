@@ -29,10 +29,10 @@ const routes: Routes = [
     path: 'subject/:subject', component:SubjectStudentComponent
   },
   {
-    path: 'homeStudent/subject/contents/text', component:TextContentComponent
+    path: 'subject/:subject/contents/text/:idc', component:TextContentComponent
   },
   {
-    path: 'homeStudent/subject/contents/video', component:VideoContentComponent
+    path: 'subject/:subject/contents/video/:idc', component:VideoContentComponent
   },
   {
     path: 'homeStudent/subject/test', component:TestComponent

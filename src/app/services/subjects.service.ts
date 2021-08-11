@@ -11,6 +11,10 @@ export class SubjectsService {
     return this.metodologia;
   }
 
+  getContenidos(idc:number){
+    return this.contenidosMetodologia;
+  }
+
   metodologia = {
     name:"Metodologia de la programación",
     profesor:"Judit Villalba",
@@ -27,7 +31,8 @@ export class SubjectsService {
               title:"Material Texto",
               type:"Texto",
               preview:"assets/img/video.png",
-              length:5
+              length:5,
+              idc:111
             },
             {
               title:"Material Video",
@@ -254,4 +259,17 @@ export class SubjectsService {
       }
     ]
   }
+
+  contenidosMetodologia = [
+    {
+      name:"Estrategias de resolución de problemas",
+      references:[
+        "Cairó O (2005). Metodología de la programación, Algoritmos, diagramas de flujo y programas 22(3a ed). México: Alfaomega.",
+        "Joyanes A. (2008). Fundamentos de programación, Algoritmos, Estructuras de datos y Objetos (4a ed). España: Mc Graw Hill.",
+        "Velasco R. (2020). Resolución de problemas algorítmicos y objetos de aprendizaje: una revisión a la literatura. México: Universidad Veracruzana.",
+        "Rozanigo B., Paur B. Estrategia para la enseñanza de Algorítmica y Programación, Facultad de Ingeniería"
+      ],
+      content:111
+    }
+  ]
 }

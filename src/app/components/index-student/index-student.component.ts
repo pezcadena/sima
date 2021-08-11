@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index-student',
@@ -8,23 +9,29 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class IndexStudentComponent implements OnInit {
 
   @Input() subject:any;
+  @Input() content:boolean=false;
   @Output() subjectOut = new EventEmitter<any>();;
   selection:number=0;
 
-  constructor() { }
+  constructor(private rute:Router) { }
 
   ngOnInit(): void {
-    this.select(0);
+    this.select(0,true);
     console.log("init Selection",this.selection);
     
     this.selection = this.subject.sections[0].select;
   }
 
-  select(index:number){
+  select(index:number,init:boolean){
     this.subject.sections[0].select = index;
     this.selection = index;
     console.log("Out",this.subject);
     this.subjectOut.emit(this.subject);
+    
+
+    if (this.content && !init) {
+      this.rute.navigate(['/subject',2]);
+    }
   }
 
 }

@@ -1,12 +1,12 @@
 <app-navbar-student></app-navbar-student>
 <div class="row m-0 p-0">
     <div class="col-2">
-        <app-index-student></app-index-student>
+        <app-index-student [subject]="subject" [content]="true"></app-index-student>
     </div>
     <div class="col-10 px-0" [ngClass]="sepia ? 'bg-info':''">
         <div class="p-4">
             <div class="row">
-                <div class="col-auto"><h2 class="fw-bold text-primary">Ejercicio 1</h2></div>
+                <div class="col-auto"><h2 class="fw-bold text-primary">{{content[0]?.name}}</h2></div>
                 <div class="col-auto">
                     <img style="width: 2rem;" class="boton" src="assets/img/como.png" alt="">
                 </div>
@@ -18,41 +18,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-10">
-                    <div>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem magnam alias animi quod incidunt eum quis perspiciatis fugiat natus rem odit accusantium voluptatibus autem, fugit beatae eveniet deleniti possimus dolorum!
-
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore quos laborum nemo tempore, consequuntur aut, praesentium ullam consequatur non asperiores, dignissimos odit deserunt libero et enim eius ex sed porro!
-                    </div>
-                    <div class="text-center p-4">
-                        <div><img style="width: 15rem;" src="assets/img/idea.png" alt=""></div>
-                        <small>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</small>
-                        <div style="font-size: .8rem;"><a href="">Fuente: loremipsum</a></div>
-                    </div>
-                    <div class="mt-2">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem magnam alias animi quod incidunt eum quis perspiciatis fugiat natus rem odit accusantium voluptatibus autem, fugit beatae eveniet deleniti possimus dolorum!
-
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore quos laborum nemo tempore, consequuntur aut, praesentium ullam consequatur non asperiores, dignissimos odit deserunt libero et enim eius ex sed porro!
-                    </div>
-                    <div class="text-center p-4">
-                        <div><img style="width: 15rem;" src="assets/img/idea.png" alt=""></div>
-                        <small>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</small>
-                        <div style="font-size: .8rem;"><a href="">Fuente: loremipsum</a></div>
-                    </div>
-                    <div class="mt-2">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem magnam alias animi quod incidunt eum quis perspiciatis fugiat natus rem odit accusantium voluptatibus autem, fugit beatae eveniet deleniti possimus dolorum!
-
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore quos laborum nemo tempore, consequuntur aut, praesentium ullam consequatur non asperiores, dignissimos odit deserunt libero et enim eius ex sed porro!
-                    </div>
-                </div>
-                <div class="col-2">
+                <div class="col-12">
                     <h5 class="text-primary">Fuentes</h5>
-                    <ul class="p-1" style="list-style: none;">
-                        <li><a href="">Link 1</a></li>
-                        <li><a href="">Link 2</a></li>
-                        <li><a href="">Link 3</a></li>
-                        <li><a href="">Link 4</a></li>
-                        <li><a href="">Link 5</a></li>
+                    <ul class="p-1">
+                        <li *ngFor="let reference of content[0]?.references">
+                            <small>{{reference}}</small>
+                        </li>
                     </ul>
                 </div>
             </div>
