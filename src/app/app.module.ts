@@ -36,6 +36,7 @@ import { T191Component } from './contents/text/t191/t191.component';
 import { T1101Component } from './contents/text/t1101/t1101.component';
 import { T1111Component } from './contents/text/t1111/t1111.component';
 import { T1121Component } from './contents/text/t1121/t1121.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { T1121Component } from './contents/text/t1121/t1121.component';
     T1101Component,
     T1111Component,
     T1121Component,
+    SafePipe,
   ],
   imports: [
     BrowserModule,
