@@ -20,6 +20,7 @@ export class SubjectStudentComponent implements OnInit {
       console.log("Subject",params.subject);
       this.subject = this.subjects.getSubject(params.subject);
       this.progress =  (this.subject.contentComplete * 100) / this.subject.contentTotal;
+      this.partName = this.subject.sections[0].parts[this.subject.sections[0].select];
     })
   }
 
