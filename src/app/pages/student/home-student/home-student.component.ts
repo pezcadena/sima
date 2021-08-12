@@ -14,8 +14,7 @@ export class HomeStudentComponent implements OnInit {
   ]
 
   notifications : Notification[] = [
-    {message:"Bienvenido a SIMA, te invitamos a explorar tus materias",active:true},
-    {message:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo voluptatum",active:false}
+    {message:"Bienvenido a SIMA, te invitamos a explorar tus materias",active:true}
   ]
 
   constructor() { }

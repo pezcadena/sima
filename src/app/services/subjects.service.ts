@@ -7,6 +7,18 @@ export class SubjectsService {
 
   constructor() { }
 
+  saveIndex(index:number){
+    var oIndex = {
+      number:index
+    }
+    localStorage.setItem("index",JSON.stringify(oIndex));
+  }
+
+  getIndex(){
+    var res = JSON.parse(localStorage.getItem("index") || '{}');
+    return res.number;
+  }
+
   getSubject(id:number){
     return this.metodologia;
   }
