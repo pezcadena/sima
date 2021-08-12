@@ -11,6 +11,7 @@ import { StudentComponent } from './pages/professor/student/student.component';
 import { TextContentComponent } from './pages/student/contents/text-content/text-content.component';
 import { VideoContentComponent } from './pages/student/contents/video-content/video-content.component';
 import { TestComponent } from './pages/student/contents/test/test.component';
+import { ImageComponent } from './pages/student/contents/image/image.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,9 @@ const routes: Routes = [
   },
   {
     path: 'subject/:subject/contents/video/:idc', component:VideoContentComponent
+  },
+  {
+    path: 'subject/:subject/contents/image/:idc', component:ImageComponent
   },
   {
     path: 'homeStudent/subject/test', component:TestComponent

@@ -37,6 +37,7 @@ import { T1101Component } from './contents/text/t1101/t1101.component';
 import { T1111Component } from './contents/text/t1111/t1111.component';
 import { T1121Component } from './contents/text/t1121/t1121.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { ImageComponent } from './pages/student/contents/image/image.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { SafePipe } from './pipes/safe.pipe';
     T1111Component,
     T1121Component,
     SafePipe,
+    ImageComponent,
   ],
   imports: [
     BrowserModule,

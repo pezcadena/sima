@@ -51,8 +51,9 @@ export class SubjectsService {
             {
               title:"Material Imagen",
               type:"Imagen",
-              preview:"assets/img/video.png",
-              length:4
+              preview:"https://drive.google.com/uc?id=1WapLGvj68kjgf_qvlhx_MmWqcAtvR8uQ",
+              length:4,
+              idc:113
             }
           ],
           [
@@ -73,8 +74,9 @@ export class SubjectsService {
             {
               title:"Material Imagen",
               type:"Imagen",
-              preview:"assets/img/video.png",
-              length:4
+              preview:"https://drive.google.com/uc?id=1tCTk2B4UqGKz2UT2isDnD9hLspUKuyJE",
+              length:4,
+              idc:123
             }
           ],
           [
@@ -95,8 +97,9 @@ export class SubjectsService {
             {
               title:"Material Imagen",
               type:"Imagen",
-              preview:"assets/img/video.png",
-              length:4
+              preview:"https://drive.google.com/uc?id=1pqlOdG3FHUO7ybT8C16KMax4_x5hdvDE",
+              length:4,
+              idc:133
             }
           ],
           [
@@ -117,8 +120,9 @@ export class SubjectsService {
             {
               title:"Material Imagen",
               type:"Imagen",
-              preview:"assets/img/video.png",
-              length:4
+              preview:"https://drive.google.com/uc?id=1AxlnNpRS-cLIy--piOiI4xXzUKP034AX",
+              length:4,
+              idc:143
             }
           ],
           [
@@ -139,8 +143,9 @@ export class SubjectsService {
             {
               title:"Material Imagen",
               type:"Imagen",
-              preview:"assets/img/video.png",
-              length:4
+              preview:"https://drive.google.com/uc?id=10Si1BllcGqSYF9JklbeRhFCJLgHG3luK",
+              length:4,
+              idc:153
             }
           ],
           [
@@ -161,8 +166,9 @@ export class SubjectsService {
             {
               title:"Material Imagen",
               type:"Imagen",
-              preview:"assets/img/video.png",
-              length:4
+              preview:"https://drive.google.com/uc?id=1b3tfUWW8vA7rMupgy3xzIeRpTd4SbzB3",
+              length:4,
+              idc:163
             }
           ],
           [
@@ -183,8 +189,9 @@ export class SubjectsService {
             {
               title:"Material Imagen",
               type:"Imagen",
-              preview:"assets/img/video.png",
-              length:4
+              preview:"https://drive.google.com/uc?id=1k-VlN6q9Nf2TrNOmD1YSICD1bn_FLzLU",
+              length:4,
+              idc:173
             }
           ],
           [
@@ -205,8 +212,9 @@ export class SubjectsService {
             {
               title:"Material Imagen",
               type:"Imagen",
-              preview:"assets/img/video.png",
-              length:4
+              preview:"https://drive.google.com/uc?id=1mRxTgU_XYQ3fO0FYitOf2IONeoy1Odry",
+              length:4,
+              idc:183
             }
           ],
           [
@@ -227,8 +235,9 @@ export class SubjectsService {
             {
               title:"Material Imagen",
               type:"Imagen",
-              preview:"assets/img/video.png",
-              length:4
+              preview:"https://drive.google.com/uc?id=1__LwW5l1N3qdTs-oSOjbNVX12r-mmqP_",
+              length:4,
+              idc:193
             }
           ],
           [
@@ -249,8 +258,9 @@ export class SubjectsService {
             {
               title:"Material Imagen",
               type:"Imagen",
-              preview:"assets/img/video.png",
-              length:4
+              preview:"https://drive.google.com/uc?id=1VaJiFA2LrU7vdsfhywc2vB7XXFJqrAXl",
+              length:4,
+              idc:1103
             }
           ],
           [
@@ -280,8 +290,9 @@ export class SubjectsService {
             {
               title:"Material Imagen",
               type:"Imagen",
-              preview:"assets/img/video.png",
-              length:4
+              preview:"https://drive.google.com/uc?id=1zTTaXSm8qP8bwRrvkNnr_4n24UUgwdkf",
+              length:4,
+              idc:1123
             }
           ]
         ]
@@ -313,6 +324,18 @@ export class SubjectsService {
       content:112
     },
     {
+      name:"Resolución de problemas en el ambito computacional",
+      images:["https://drive.google.com/uc?id=1WapLGvj68kjgf_qvlhx_MmWqcAtvR8uQ"],
+      references:[
+        "Cairó O (2005). Metodología de la programación, Algoritmos, diagramas de flujo y programas 22(3a ed). México: Alfaomega.",
+        "Joyanes A. (2008). Fundamentos de programación, Algoritmos, Estructuras de datos y Objetos (4a ed). España: Mc Graw Hill.",
+        "Velasco R. (2020). Resolución de problemas algorítmicos y objetos de aprendizaje: una revisión a la literatura. México: Universidad Veracruzana.",
+        "Rozanigo B., Paur B. Estrategia para la enseñanza de Algorítmica y Programación, Facultad de Ingeniería"
+      ],
+      video:"https://drive.google.com/file/d/1h7dzOBjqqcqViqcHMy9r2yn-U3PJryPO/preview",
+      content:113
+    },
+    {
       name:"Analogías",
       images:["1"],
       references:[
@@ -332,6 +355,16 @@ export class SubjectsService {
       video:"https://drive.google.com/file/d/1776bqxdkQ0Uuu4uf1Y9kafl90_YPAogI/preview"
     },
     {
+      name:"Analogías",
+      images:["https://drive.google.com/uc?id=1tCTk2B4UqGKz2UT2isDnD9hLspUKuyJE"],
+      references:[
+        "Ziman B. Solución de problemas en la investigación tecnológica: I.P.N.  Escuela Superior de Ingeniería Mecánica y Eléctrica ",
+        "Molero M., Salvador A., Resolución de problemas. Estrategias heurísticas."
+      ],
+      content:123,
+      video:"https://drive.google.com/file/d/1776bqxdkQ0Uuu4uf1Y9kafl90_YPAogI/preview"
+    },
+    {
       name:"Divide y vencerás",
       images:["1"],
       references:[
@@ -346,6 +379,15 @@ export class SubjectsService {
         "Chiocode"
       ],
       content:132,
+      video:"https://drive.google.com/file/d/1XRHtPGD3Pl8vKoEdOI8J6kTa5mj5bkOZ/preview"
+    },
+    {
+      name:"Divide y vencerás",
+      images:["https://drive.google.com/uc?id=1pqlOdG3FHUO7ybT8C16KMax4_x5hdvDE"],
+      references:[
+        "Chiocode"
+      ],
+      content:133,
       video:"https://drive.google.com/file/d/1XRHtPGD3Pl8vKoEdOI8J6kTa5mj5bkOZ/preview"
     },
     {
@@ -370,6 +412,17 @@ export class SubjectsService {
       video:"https://drive.google.com/file/d/14XRmgdFk0O-Oje8CdIe8YqbJsnODj7mv/preview"
     },
     {
+      name:"Arquitectura funcional",
+      images:["https://drive.google.com/uc?id=1AxlnNpRS-cLIy--piOiI4xXzUKP034AX"],
+      references:[
+        "Introducción a la programación con Octave, Teoría de programación:  Cuestión de arquitectura, https://cursorec.readthedocs.io/en/latest/teoria1.html", 
+        "Guzmán E. (2019). Elementos de programación. Lima Perú: Universidad  Nacional de Educación, Facultad de Ciencias, Escuela Profesional de  Matemática e Informática.", 
+        "Cairó O. (3a) (2005). Metodología de la programación, Algoritmos diagramas  de flujo y programas. México: Alfaomega grupo editorial "
+      ],
+      content:143,
+      video:"https://drive.google.com/file/d/14XRmgdFk0O-Oje8CdIe8YqbJsnODj7mv/preview"
+    },
+    {
       name:"Datos",
       images:["1"],
       references:[
@@ -386,6 +439,16 @@ export class SubjectsService {
         "Cairó O. (3a) (2005). Metodología de la programación, Algoritmos diagramas  de flujo y programas. México: Alfaomega grupo editorial."
       ],
       content:152,
+      video:"https://drive.google.com/file/d/15mdUgafr1Ehn56sFta4gcyT9vfz_EE_a/preview"
+    },
+    {
+      name:"Datos",
+      images:["https://drive.google.com/uc?id=10Si1BllcGqSYF9JklbeRhFCJLgHG3luK"],
+      references:[
+        "Guzmán E. (2019). Elementos de programación. Lima Perú: Universidad  Nacional de Educación, Facultad de Ciencias, Escuela Profesional de  Matemática e Informática.",
+        "Cairó O. (3a) (2005). Metodología de la programación, Algoritmos diagramas  de flujo y programas. México: Alfaomega grupo editorial."
+      ],
+      content:153,
       video:"https://drive.google.com/file/d/15mdUgafr1Ehn56sFta4gcyT9vfz_EE_a/preview"
     },
     {
@@ -412,6 +475,18 @@ export class SubjectsService {
       video: "https://drive.google.com/file/d/1BJB-8SC9Me4chlyGOJztOOtYC_CLeUFz/preview"
     },
     {
+      name:"Operadores",
+      images:["https://drive.google.com/uc?id=1b3tfUWW8vA7rMupgy3xzIeRpTd4SbzB3"],
+      references:[
+        "Guzmán E. (2019). Elementos de programación. Lima Perú: Universidad  Nacional de Educación, Facultad de Ciencias, Escuela Profesional de  Matemática e Informática.", 
+        "Cairó O. (3aedición) (2005). Metodología de la programación, Algoritmos  diagramas de flujo y programas. México: Alfaomega grupo editorial.", 
+        "Joyanes A. (4a edición) (2008). Fundamentos de programación. Algoritmos,  Estructura de datos y objetos. España.", 
+        "Cervantes N., Pineda C. Fundamentos de programación, expresiones,  http://www.utn.edu.ec/reduca/programacion/fundamentos/lgicas.html"
+      ],
+      content:163,
+      video: "https://drive.google.com/file/d/1BJB-8SC9Me4chlyGOJztOOtYC_CLeUFz/preview"
+    },
+    {
       name:"Diagramas de flujo",
       images:["1"],
       references:[
@@ -428,6 +503,16 @@ export class SubjectsService {
         "Joyanes A. (4a edición) (2008). Fundamentos de programación. Algoritmos,  Estructura de datos y objetos. España. "
       ],
       content:172,
+      video:"https://drive.google.com/file/d/1yNlADI4WeqKAx52HDVQpzfMYkjdY5E0v/preview"
+    },
+    {
+      name:"Diagramas de flujo",
+      images:["https://drive.google.com/uc?id=1k-VlN6q9Nf2TrNOmD1YSICD1bn_FLzLU"],
+      references:[
+        "Cairó O. (3aedición) (2005). Metodología de la programación, Algoritmos  diagramas de flujo y programas. México: Alfaomega grupo editorial.",
+        "Joyanes A. (4a edición) (2008). Fundamentos de programación. Algoritmos,  Estructura de datos y objetos. España. "
+      ],
+      content:173,
       video:"https://drive.google.com/file/d/1yNlADI4WeqKAx52HDVQpzfMYkjdY5E0v/preview"
     },
     {
@@ -450,6 +535,16 @@ export class SubjectsService {
       video:"https://drive.google.com/file/d/14XZ2y_C1da_IKH5RJsUnFJNu6iSeiv8d/preview"
     },
     {
+      name:"Pseudocódigo",
+      images:["https://drive.google.com/uc?id=1mRxTgU_XYQ3fO0FYitOf2IONeoy1Odry"],
+      references:[
+        "Cairó O. (3aedición) (2005). Metodología de la programación, Algoritmos  diagramas de flujo y programas. México: Alfaomega grupo editorial.",
+        "Joyanes A. (4a edición) (2008). Fundamentos de programación. Algoritmos,  Estructura de datos y objetos. España. "
+      ],
+      content:183,
+      video:"https://drive.google.com/file/d/14XZ2y_C1da_IKH5RJsUnFJNu6iSeiv8d/preview"
+    },
+    {
       name:"Estructura de secuencia",
       images:["1"],
       references:[
@@ -464,6 +559,15 @@ export class SubjectsService {
         "Joyanes A. (4a edición) (2008). Fundamentos de programación. Algoritmos,  Estructura de datos y objetos. España."
       ],
       content:192,
+      video:"https://drive.google.com/file/d/1HoViVbSlCHmk-VcnIHMUdWoLP2hiuDgJ/preview"
+    },
+    {
+      name:"Estructura de secuencia",
+      images:["https://drive.google.com/uc?id=1__LwW5l1N3qdTs-oSOjbNVX12r-mmqP_"],
+      references:[
+        "Joyanes A. (4a edición) (2008). Fundamentos de programación. Algoritmos,  Estructura de datos y objetos. España."
+      ],
+      content:193,
       video:"https://drive.google.com/file/d/1HoViVbSlCHmk-VcnIHMUdWoLP2hiuDgJ/preview"
     },
     {
@@ -483,6 +587,16 @@ export class SubjectsService {
         "Joyanes A. (4a edición) (2008). Fundamentos de programación. Algoritmos,  Estructura de datos y objetos. España. "
       ],
       content:1102,
+      video:"https://drive.google.com/file/d/17Ljkg9GoZxcNEgOvz5z_R5Hobik83sNy/preview"
+    },
+    {
+      name:"Estructura de control",
+      images:["https://drive.google.com/uc?id=1VaJiFA2LrU7vdsfhywc2vB7XXFJqrAXl"],
+      references:[
+        "Cairó O. (3aedición) (2005). Metodología de la programación, Algoritmos  diagramas de flujo y programas. México: Alfaomega grupo editorial.", 
+        "Joyanes A. (4a edición) (2008). Fundamentos de programación. Algoritmos,  Estructura de datos y objetos. España. "
+      ],
+      content:1103,
       video:"https://drive.google.com/file/d/17Ljkg9GoZxcNEgOvz5z_R5Hobik83sNy/preview"
     },
     {
@@ -513,6 +627,17 @@ export class SubjectsService {
         "Peris R. Instrucciones repetitivas"
       ],
       content:1122,
+      video:"https://drive.google.com/file/d/12-orZbOaAdovGsro41G4flftvNEJYWMh/preview"
+    },
+    {
+      name:"Estructuras de repetición",
+      images:["https://drive.google.com/uc?id=1zTTaXSm8qP8bwRrvkNnr_4n24UUgwdkf"],
+      references:[
+        "Cairó O. (3aedición) (2005). Metodología de la programación, Algoritmos  diagramas de flujo y programas. México: Alfaomega grupo editorial.",
+        "Rodriguez B. (2012) Fundamentos de programación, Estructura de control,  Universidad Pontificia de Salamanca ",
+        "Peris R. Instrucciones repetitivas"
+      ],
+      content:1123,
       video:"https://drive.google.com/file/d/12-orZbOaAdovGsro41G4flftvNEJYWMh/preview"
     },
     
