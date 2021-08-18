@@ -23,11 +23,11 @@
                 <button type="submit" class="btn btn-primary btn-xl rounded-pill fw-bold text-white" style="width: 100%;">Entrar</button>
             </div>
         </form>
-        <div class="mb-4">
+        <!-- <div class="mb-4">
             <button (click)="cerrarSesion()" class="btn btn-primary btn-xl rounded-pill fw-bold text-white" style="width: 100%;">Cerrar sesion</button>
-        </div>
+        </div> -->
         <div class="mb-4">
-            <a class="btn btn-primary btn-xl rounded-pill fw-bold text-white" style="width: 100%;" href="#" role="button"> Registrarse </a>
+            <a class="btn btn-primary btn-xl rounded-pill fw-bold text-white" style="width: 100%;" [routerLink]="['/register']" role="button"> Registrarse </a>
         </div>
         <div>
             <a class="btn btn-outline-primary btn-sm rounded-pill" style="width: 100%;" href="#" role="button"> <small>Recuperar contraseña </small></a>
