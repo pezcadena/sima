@@ -47,7 +47,7 @@ const routes: Routes = [
     path: 'homeProfessor/group/student', component:StudentComponent
   },
   {
-    path: '**', pathMatch: 'full', redirectTo: 'homeStudent'
+    path: '**', pathMatch: 'full', redirectTo: 'login'
   }
 ];
 

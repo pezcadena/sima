@@ -6,14 +6,25 @@
                 Iniciar Sesión
             </h3>
         </div>
+        <form   [formGroup]="form"
+                (submit)="submitForm()"
+                autocomplete="off" >
+            <div class="mb-4">
+                <input  formControlName="correo"
+                        name="correo"
+                        class="rounded-pill" style="width: 100%;" type="text" id="" placeholder="Correo">
+            </div>
+            <div class="mb-4">
+                <input  formControlName="password"
+                        name="password"
+                        class="rounded-pill" style="width: 100%;" type="password" placeholder="Contraseña">
+            </div>
+            <div class="mb-4">
+                <button type="submit" class="btn btn-primary btn-xl rounded-pill fw-bold text-white" style="width: 100%;">Entrar</button>
+            </div>
+        </form>
         <div class="mb-4">
-            <input class="rounded-pill" style="width: 100%;" type="text" name="" id="" placeholder="Correo">
-        </div>
-        <div class="mb-4">
-            <input class="rounded-pill" style="width: 100%;" type="password" placeholder="Contraseña">
-        </div>
-        <div class="mb-4">
-            <a class="btn btn-primary btn-xl rounded-pill fw-bold text-white" style="width: 100%;" href="#" role="button"> Entrar </a>
+            <button (click)="cerrarSesion()" class="btn btn-primary btn-xl rounded-pill fw-bold text-white" style="width: 100%;">Cerrar sesion</button>
         </div>
         <div class="mb-4">
             <a class="btn btn-primary btn-xl rounded-pill fw-bold text-white" style="width: 100%;" href="#" role="button"> Registrarse </a>

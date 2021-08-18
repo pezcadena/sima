@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sima-web-fcc": {
+      "hosting": {
+        "app": [
+          "sima-web-fcc"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sima-web-fcc"
+  }
+}

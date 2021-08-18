@@ -24,6 +24,16 @@ import { TextContentComponent } from './pages/student/contents/text-content/text
 import { VideoContentComponent } from './pages/student/contents/video-content/video-content.component';
 import { TestComponent } from './pages/student/contents/test/test.component';
 
+/*===========================================================
+      Configuración de Firebase
+===========================================================*/
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+
+
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +60,10 @@ import { TestComponent } from './pages/student/contents/test/test.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
