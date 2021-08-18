@@ -1,0 +1,35 @@
+<app-navbar-student></app-navbar-student>
+<div class="row m-0 p-0">
+    <div class="col-2">
+        <app-index-student [subject]="subject" [content]="true"></app-index-student>
+    </div>
+    <div class="col-10 px-0">
+        <div class="p-3">
+            <div class="row">
+                <div class="col-auto"><h2 class="fw-bold text-primary">{{content?.name}}</h2></div>
+                <div class="col-auto">
+                    <img style="width: 2rem;" class="boton" src="assets/img/como.png" alt="">
+                </div>
+                <div class="col-auto">
+                    <img style="width: 2rem;" class="boton" src="assets/img/disgusto.png" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <img style="width: 100%;" [src]="content?.images[0]" alt="">
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-4">
+                    <h5 class="text-primary mt-3 fw-bold">Fuentes</h5>
+                    <ul class="p-1">
+                        <li *ngFor="let reference of content.references">
+                            <small>{{reference}}</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

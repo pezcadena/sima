@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Content } from '../../interfaces/content';
 
 @Component({
@@ -8,16 +8,32 @@ import { Content } from '../../interfaces/content';
 })
 export class CardContentComponent implements OnInit {
 
-  content:Content = {
+  @Input() content:Content = {
     title:"Lección",
     type:"Prueba",
     preview:"assets/img/video.png",
     length:10
   }
 
+  type:string="";
+
   constructor() { }
 
   ngOnInit(): void {
+    switch (this.content.type) {
+      case "Texto":
+        this.type="text";
+        break;
+      case "Video":
+        this.type="video";
+        break;
+      case "Imagen":
+        this.type="image";
+        break;
+      default:
+        this.type="nothing";
+        break;
+    }
   }
 
 }

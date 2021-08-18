@@ -10,13 +10,11 @@ import { Subject } from '../../../interfaces/subject';
 export class HomeStudentComponent implements OnInit {
 
   subjects : Subject[] = [
-    {name:"Matematicas",professor:"Ana Barbares",contentComplete:43,contentTotal:50},
-    {name:"Matodologia de la programación", professor:"Judit Villalba",contentComplete:14,contentTotal:56}
+    {id:2,name:"Metodologia de la programación", professor:"Judit Villalba",contentComplete:14,contentTotal:56}
   ]
 
   notifications : Notification[] = [
-    {message:"Bienvenido a SIMA, te invitamos a explorar tus materias",active:true},
-    {message:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo voluptatum",active:false}
+    {message:"Bienvenido a SIMA, te invitamos a explorar tus materias",active:true}
   ]
 
   constructor() { }
