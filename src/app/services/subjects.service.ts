@@ -66,6 +66,13 @@ export class SubjectsService {
               preview:"https://drive.google.com/uc?id=1WapLGvj68kjgf_qvlhx_MmWqcAtvR8uQ",
               length:4,
               idc:113
+            },
+            {
+              title:"Prueba de conocimientos",
+              type:"Test",
+              preview:"assets/img/video.png",
+              length:0,
+              idc:114
             }
           ],
           [
@@ -89,6 +96,13 @@ export class SubjectsService {
               preview:"https://drive.google.com/uc?id=1tCTk2B4UqGKz2UT2isDnD9hLspUKuyJE",
               length:4,
               idc:123
+            },
+            {
+              title:"Prueba de conocimientos",
+              type:"Test",
+              preview:"assets/img/video.png",
+              length:0,
+              idc:124
             }
           ],
           [
@@ -112,6 +126,13 @@ export class SubjectsService {
               preview:"https://drive.google.com/uc?id=1pqlOdG3FHUO7ybT8C16KMax4_x5hdvDE",
               length:4,
               idc:133
+            },
+            {
+              title:"Prueba de conocimientos",
+              type:"Test",
+              preview:"assets/img/video.png",
+              length:0,
+              idc:134
             }
           ],
           [
@@ -135,6 +156,13 @@ export class SubjectsService {
               preview:"https://drive.google.com/uc?id=1AxlnNpRS-cLIy--piOiI4xXzUKP034AX",
               length:4,
               idc:143
+            },
+            {
+              title:"Prueba de conocimientos",
+              type:"Test",
+              preview:"assets/img/video.png",
+              length:0,
+              idc:144
             }
           ],
           [
@@ -158,6 +186,13 @@ export class SubjectsService {
               preview:"https://drive.google.com/uc?id=10Si1BllcGqSYF9JklbeRhFCJLgHG3luK",
               length:4,
               idc:153
+            },
+            {
+              title:"Prueba de conocimientos",
+              type:"Test",
+              preview:"assets/img/video.png",
+              length:0,
+              idc:154
             }
           ],
           [
@@ -181,6 +216,13 @@ export class SubjectsService {
               preview:"https://drive.google.com/uc?id=1b3tfUWW8vA7rMupgy3xzIeRpTd4SbzB3",
               length:4,
               idc:163
+            },
+            {
+              title:"Prueba de conocimientos",
+              type:"Test",
+              preview:"assets/img/video.png",
+              length:0,
+              idc:164
             }
           ],
           [
@@ -204,6 +246,13 @@ export class SubjectsService {
               preview:"https://drive.google.com/uc?id=1k-VlN6q9Nf2TrNOmD1YSICD1bn_FLzLU",
               length:4,
               idc:173
+            },
+            {
+              title:"Prueba de conocimientos",
+              type:"Test",
+              preview:"assets/img/video.png",
+              length:0,
+              idc:174
             }
           ],
           [
@@ -227,6 +276,13 @@ export class SubjectsService {
               preview:"https://drive.google.com/uc?id=1mRxTgU_XYQ3fO0FYitOf2IONeoy1Odry",
               length:4,
               idc:183
+            },
+            {
+              title:"Prueba de conocimientos",
+              type:"Test",
+              preview:"assets/img/video.png",
+              length:0,
+              idc:184
             }
           ],
           [
@@ -250,6 +306,13 @@ export class SubjectsService {
               preview:"https://drive.google.com/uc?id=1__LwW5l1N3qdTs-oSOjbNVX12r-mmqP_",
               length:4,
               idc:193
+            },
+            {
+              title:"Prueba de conocimientos",
+              type:"Test",
+              preview:"assets/img/video.png",
+              length:0,
+              idc:194
             }
           ],
           [
@@ -273,6 +336,13 @@ export class SubjectsService {
               preview:"https://drive.google.com/uc?id=1VaJiFA2LrU7vdsfhywc2vB7XXFJqrAXl",
               length:4,
               idc:1103
+            },
+            {
+              title:"Prueba de conocimientos",
+              type:"Test",
+              preview:"assets/img/video.png",
+              length:0,
+              idc:1104
             }
           ],
           [
@@ -283,6 +353,13 @@ export class SubjectsService {
               length:5,
               idc:1111
             },
+            {
+              title:"Prueba de conocimientos",
+              type:"Test",
+              preview:"assets/img/video.png",
+              length:0,
+              idc:1114
+            }
           ],
           [
             {
@@ -305,6 +382,13 @@ export class SubjectsService {
               preview:"https://drive.google.com/uc?id=1zTTaXSm8qP8bwRrvkNnr_4n24UUgwdkf",
               length:4,
               idc:1123
+            },
+            {
+              title:"Prueba de conocimientos",
+              type:"Test",
+              preview:"assets/img/video.png",
+              length:0,
+              idc:1124
             }
           ]
         ]

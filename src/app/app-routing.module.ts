@@ -39,7 +39,7 @@ const routes: Routes = [
     path: 'subject/:subject/contents/image/:idc', component:ImageComponent
   },
   {
-    path: 'homeStudent/subject/test', component:TestComponent
+    path: 'subject/:subject/contents/test/:idc', component:TestComponent
   },
   {
     path: 'homeProfessor', component:HomeProfessorComponent

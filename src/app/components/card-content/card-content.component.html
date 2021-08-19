@@ -3,7 +3,7 @@
         <div class="col">
             <div class="card-body">
                 <h5 class="text-secondary fw-bold">{{content.title}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted ">{{content.length}} min</h6>
+                <h6 *ngIf="content.length != 0" class="card-subtitle mb-2 text-muted ">{{content.length}} min</h6>
             </div>
         </div>
         <div class="col-auto" style="position: relative;">

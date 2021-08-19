@@ -31,7 +31,7 @@ export class CardContentComponent implements OnInit {
         this.type="image";
         break;
       default:
-        this.type="nothing";
+        this.type="test";
         break;
     }
   }
