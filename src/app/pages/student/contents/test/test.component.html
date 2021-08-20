@@ -4,37 +4,19 @@
     <h6 class="text-secondary mb-0 fw-bold">{{subjectName}}</h6>
     <h4 class="text-primary fw-bold">{{testName}}</h4>
     <div class="px-5 pt-4" style="height: 28rem;">
-        <div class="card bg-secondary text-white rounded-3 shadow" style="height: 90%;">
-          <div class="card-body p-4">
-            <h5 class="card-title fw-bold text-primary">Indicaciónes</h5>
-            <ul class="mt-4">
-                <li>La evaluación consta de 15 preguntas</li>
-                <li>La evaluación consta de 15 preguntas</li>
-                <li>La evaluación consta de 15 preguntas</li>
-                <li>La evaluación consta de 15 preguntas</li>
-                <li>La evaluación consta de 15 preguntas</li>
-            </ul>
-            <div style="position: absolute; bottom: 1rem;right: 1rem;">
-                <a class="btn btn-primary text-white fw-bold btn-xl rounded-pill" href="#" role="button"> Empezar </a>
-            </div>
-          </div>
-        </div>
+        <app-card-instructions (startEmitter)="start()" *ngIf="!startTest"></app-card-instructions>
+        <app-card-question *ngIf="startTest" [questionNumber]="questionNumber" [question]="questions[questionNumber]" (emitter)="questionNumber=questionNumber+1"></app-card-question>
         <div class="mt-3 text-center">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
-            <img src="assets/img/circle.png" class="me-1" style="width: 2rem;" alt="">
+            <img [src]="questionNumber>0?'assets/img/circle.png':''" class="me-1" style="width: 2rem;" alt="">
+            <img [src]="questionNumber>1?'assets/img/circle.png':''" class="me-1" style="width: 2rem;" alt="">
+            <img [src]="questionNumber>2?'assets/img/circle.png':''" class="me-1" style="width: 2rem;" alt="">
+            <img [src]="questionNumber>3?'assets/img/circle.png':''" class="me-1" style="width: 2rem;" alt="">
+            <img [src]="questionNumber>4?'assets/img/circle.png':''" class="me-1" style="width: 2rem;" alt="">
+            <img [src]="questionNumber>5?'assets/img/circle.png':''" class="me-1" style="width: 2rem;" alt="">
+            <img [src]="questionNumber>6?'assets/img/circle.png':''" class="me-1" style="width: 2rem;" alt="">
+            <img [src]="questionNumber>7?'assets/img/circle.png':''" class="me-1" style="width: 2rem;" alt="">
+            <img [src]="questionNumber>8?'assets/img/circle.png':''" class="me-1" style="width: 2rem;" alt="">
+            <img [src]="questionNumber>9?'assets/img/circle.png':''" class="me-1" style="width: 2rem;" alt="">
         </div>
     </div>
 </div>

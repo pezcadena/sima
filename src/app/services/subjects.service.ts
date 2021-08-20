@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SubjectsService {
 
-  constructor() { }
+  constructor(private db: AngularFirestore) { }
 
   saveIndex(index:number){
     var oIndex = {
@@ -33,6 +34,12 @@ export class SubjectsService {
 
     return contenido;
   }
+
+  getTestSubject(){
+    return this.db.collection("materias").doc("WgWzoabaQUfn5qIz2slV").get();
+  }
+
+  
 
   metodologia = {
     name:"Metodologia de la programación",

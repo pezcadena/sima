@@ -11,7 +11,7 @@ export class IndexStudentComponent implements OnInit {
 
   @Input() subject:any;
   @Input() content:boolean=false;
-  @Output() subjectOut = new EventEmitter<any>();;
+  @Output() subjectOut = new EventEmitter<any>();
   selection:number=0;
 
   constructor(private rute:Router,private index:SubjectsService) { }

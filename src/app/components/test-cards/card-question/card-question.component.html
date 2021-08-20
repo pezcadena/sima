@@ -1,0 +1,23 @@
+<div class="card bg-secondary text-white rounded-3 shadow">
+    <div class="card-body p-4">
+        <pre class="fw-bold text-white">{{question.frase}}</pre>
+        <div style="height: 90%;">
+            <div class="row h-50">
+                <div (click)="next()" class="col-6 border border-white h-100">
+                    <pre>{{answers[0]}}</pre>
+                </div>
+                <div (click)="next()" class="col-6 border border-white h-100">
+                    <pre>{{answers[1]}}</pre>
+                </div>
+            </div>
+            <div class="row h-50">
+                <div (click)="next()" class="col-6 border border-white h-100">
+                    <pre>{{answers[2]}}</pre>
+                </div>
+                <div (click)="next()" class="col-6 border border-white h-100">
+                    <pre>{{answers[3]}}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -48,6 +48,8 @@ import { environment } from '../environments/environment';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { CardInstructionsComponent } from './components/test-cards/card-instructions/card-instructions.component';
+import { CardQuestionComponent } from './components/test-cards/card-question/card-question.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +89,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     T1121Component,
     SafePipe,
     ImageComponent,
+    CardInstructionsComponent,
+    CardQuestionComponent,
   ],
   imports: [
     BrowserModule,
