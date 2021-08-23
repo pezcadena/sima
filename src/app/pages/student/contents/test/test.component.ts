@@ -26,6 +26,8 @@ export class TestComponent implements OnInit {
       this.subject = this.subjects.getSubject(params.subject);
       this.subjectName = this.subject.name;
       this.contentid = this.separaDigitos(params.idc);
+      console.log("IDC",this.contentid);
+      
       this.testName  = this.subject.sections[0].parts[this.contentid[1]-1];
     });
 
@@ -44,6 +46,33 @@ export class TestComponent implements OnInit {
   enviarPreguntas(){
     switch (this.contentid[1]) {
       case 1:
+        this.questions = this.testSubject.preguntas_sec1_m1;
+        break;
+      case 2:
+        this.questions = this.testSubject.preguntas_sec1_m2;
+        break;
+      case 3:
+        this.questions = this.testSubject.preguntas_sec1_m3;
+        break;
+      case 4:
+        this.questions = this.testSubject.preguntas_sec2_m1;
+        break;
+      case 5:
+        this.questions = this.testSubject.preguntas_sec2_m2;
+        break;
+      case 6:
+        this.questions = this.testSubject.preguntas_sec2_m3;
+        break;
+      case 7:
+        this.questions = this.testSubject.preguntas_sec3_m1;
+        break;
+      case 8:
+        this.questions = this.testSubject.preguntas_sec4_m1;
+        break;
+      case 9:
+        this.questions = this.testSubject.preguntas_sec5_m1;
+        break;
+      case 10:
         this.questions = this.testSubject.preguntas_sec1_m1;
         break;
       default:
