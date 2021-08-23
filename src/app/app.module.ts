@@ -50,6 +50,7 @@ import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardInstructionsComponent } from './components/test-cards/card-instructions/card-instructions.component';
 import { CardQuestionComponent } from './components/test-cards/card-question/card-question.component';
+import { CardResultsComponent } from './components/test-cards/card-results/card-results.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { CardQuestionComponent } from './components/test-cards/card-question/car
     ImageComponent,
     CardInstructionsComponent,
     CardQuestionComponent,
+    CardResultsComponent,
   ],
   imports: [
     BrowserModule,

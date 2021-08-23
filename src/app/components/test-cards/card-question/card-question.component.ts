@@ -34,7 +34,7 @@ export class CardQuestionComponent implements OnInit {
   }
 
   next(){
-    if (this.questionNumber < 9) {
+    if (this.questionNumber < 10) {
       this.emitter.emit();  
     }
   }
