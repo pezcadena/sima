@@ -16,7 +16,8 @@ export class TestComponent implements OnInit {
   questionNumber:number = 0;
   testSubject:any;
   contentid:number[]=[];
-  questions=[]
+  questions=[];
+  results:any[]=[];
 
   constructor( private activatedRoute: ActivatedRoute, private subjects: SubjectsService ) { }
 
@@ -93,6 +94,25 @@ export class TestComponent implements OnInit {
     }
     digits.reverse();
     return digits;
+  }
+
+  questionEmitter(event:any){
+    this.questionNumber=this.questionNumber+1;
+    console.log("QuestionNumber",this.questionNumber);
+    console.log("Results",event);
+    this.results = event;
+  }
+
+  questionIndicator(index:number){
+    if (index<this.questionNumber) {
+      if (this.results[index]) {
+        return "assets/img/checked.png"
+      } else {
+        return "assets/img/x-button.png"
+      }
+    } else {
+      return "assets/img/"+index+".png";
+    }
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-card-results',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardResultsComponent implements OnInit {
 
+  @Input() results:any[]=[];
+  corrects:number=0;
+  total:number=0;
+
+
   constructor() { }
 
   ngOnInit(): void {
+    this.total = this.results.length;
+    this.results.forEach(element => {
+      if (element) {
+        this.corrects++;
+      }
+    });
   }
 
 }

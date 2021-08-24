@@ -11,6 +11,7 @@ export class CardQuestionComponent implements OnInit {
    @Input() questionNumber:any;
    @Output() emitter = new EventEmitter<any>();
    answers:any[]= [];
+   result:any[]= [];
 
   constructor() { }
 
@@ -33,9 +34,18 @@ export class CardQuestionComponent implements OnInit {
     console.log("random ans",this.answers);
   }
 
-  next(){
+  next(index:number){
+
+    if (this.answers[index] == this.question.respuesta_Correcta) {
+      console.log("CORRECTO");
+      this.result.push(true);      
+    } else {
+      console.log("INCORRECTO");
+      this.result.push(false);
+    }
+
     if (this.questionNumber < 10) {
-      this.emitter.emit();  
+      this.emitter.emit(this.result);  
     }
   }
 

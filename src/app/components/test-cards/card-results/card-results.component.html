@@ -1,7 +1,11 @@
 <div class="card bg-secondary text-white rounded-3 shadow" style="height: 90%;">
     <div class="card-body p-4">
         <h1 class="card-title fw-bold text-primary">Resultados</h1>
-        <h1>Algo</h1>
+        <div class="d-flex justify-content-center align-items-center h-50">
+            <h1 class="fw-bold" style="font-size: 7rem;">{{corrects}}/{{total}}</h1>
+        </div>
+        <div *ngIf="corrects<6" class="text-danger fw-bold text-center">Intentalo otra vez :C</div>
+        <div *ngIf="corrects>=6" class="text-success fw-bold text-center">¡Felicidades!</div>
         <div style="position: absolute; bottom: 1rem;right: 1rem;">
             <a class="btn btn-primary text-white fw-bold btn-xl rounded-pill" href="" role="button"> Finalizar </a>
         </div>
