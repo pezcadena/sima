@@ -1,6 +1,9 @@
 <div class="card bg-secondary text-white rounded-3 shadow">
     <div class="card-body p-4">
         <pre class="fw-bold text-white">{{question.frase}}</pre>
+        <div *ngIf="question.imagen" class="mb-4">
+            <img [src]="question.imagen" class="img-fluid" alt="">
+        </div>
         <div style="height: 90%;">
             <div class="row h-50">
                 <div (click)="next(0)" class="col-6 h-100">
