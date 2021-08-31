@@ -33,7 +33,7 @@
             <div class="col-md-12">
                 <input  formControlName="correo"
                         name="correo"
-                        class="rounded-pill" style="width: 100%;" type="email"  id="" placeholder="Correo">
+                        class="rounded-pill" style="width: 100%;" type="email"  id="" placeholder="Correo institucional">
             </div>
             
         </div>
@@ -41,13 +41,15 @@
         <div class="mb-4">
             <input  formControlName="matricula"
                     name="matricula"
+                    minlength="9"
+                    maxlength="9"
                     class="rounded-pill" style="width: 100%;" type="number" placeholder="Matricula">
         </div>
         <div class="mb-4">
-            <button type="submit" class="btn btn-primary btn-xl rounded-pill fw-bold text-white" style="width: 50%;" >Enviar form</button>
+            <button type="submit" class="btn btn-primary btn-xl rounded-pill fw-bold text-white" style="width: 50%;" >Registrarme</button>
         </div>
         <div>
-            <a class="btn btn-outline-primary btn-sm rounded-pill" style="width: 50%;" href="#" role="button"> <small>Iniciar Sesión</small></a>
+            <a [routerLink]="['/login']" class="btn btn-outline-primary btn-sm rounded-pill" style="width: 50%;" href="#" role="button"> <small>Iniciar Sesión</small></a>
         </div>
     </form>
 </div>
