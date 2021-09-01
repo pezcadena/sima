@@ -1,0 +1,29 @@
+<nav class="p-2 
+            m-0 
+            row 
+            align-items-center 
+            bg-secondary 
+            border-bottom 
+            border-primary 
+            border-3
+">    
+    <div class="col-auto">
+        <a class="btn btn-primary btn-xl rounded-pill text-white" href="#" role="button"> Inicio </a>
+    </div>
+    <div class="col-auto">
+        <a class="btn btn-primary btn-xl rounded-pill text-white" (click)="selectB('0')" role="button"> Materias </a>
+    </div>
+    <div class="col-auto">
+        <a class="btn btn-primary btn-xl rounded-pill text-white" (click)="selectB('1')" role="button"> Alumnos </a>
+    </div>
+    <div class="col-auto">
+        <a class="btn btn-primary btn-xl rounded-pill text-white" (click)="selectB('2')" role="button"> Profesores </a>
+    </div>
+</nav>
+
+<div [ngSwitch]="select">
+    <app-subject-admin *ngSwitchCase="'0'"></app-subject-admin>
+    <app-student-admin *ngSwitchCase="'1'"></app-student-admin>
+    <app-professor-admin *ngSwitchCase="'2'"></app-professor-admin>
+    <div *ngSwitchDefault>output2</div>
+</div>

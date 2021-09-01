@@ -12,8 +12,12 @@ import { TextContentComponent } from './pages/student/contents/text-content/text
 import { VideoContentComponent } from './pages/student/contents/video-content/video-content.component';
 import { TestComponent } from './pages/student/contents/test/test.component';
 import { ImageComponent } from './pages/student/contents/image/image.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 const routes: Routes = [
+  {
+    path: 'admin', component:AdminComponent
+  },
   {
     path: 'login', component:LoginComponent
   },

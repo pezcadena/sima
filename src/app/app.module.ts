@@ -51,6 +51,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CardInstructionsComponent } from './components/test-cards/card-instructions/card-instructions.component';
 import { CardQuestionComponent } from './components/test-cards/card-question/card-question.component';
 import { CardResultsComponent } from './components/test-cards/card-results/card-results.component';
+import { SubjectAdminComponent } from './pages/admin/subject-admin/subject-admin.component';
+import { StudentAdminComponent } from './pages/admin/student-admin/student-admin.component';
+import { ProfessorAdminComponent } from './pages/admin/professor-admin/professor-admin.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +97,10 @@ import { CardResultsComponent } from './components/test-cards/card-results/card-
     CardInstructionsComponent,
     CardQuestionComponent,
     CardResultsComponent,
+    SubjectAdminComponent,
+    StudentAdminComponent,
+    ProfessorAdminComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
