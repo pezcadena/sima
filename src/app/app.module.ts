@@ -55,6 +55,7 @@ import { SubjectAdminComponent } from './pages/admin/subject-admin/subject-admin
 import { StudentAdminComponent } from './pages/admin/student-admin/student-admin.component';
 import { ProfessorAdminComponent } from './pages/admin/professor-admin/professor-admin.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { UploadGroupComponent } from './pages/professor/upload-group/upload-group.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { AdminComponent } from './pages/admin/admin.component';
     StudentAdminComponent,
     ProfessorAdminComponent,
     AdminComponent,
+    UploadGroupComponent,
   ],
   imports: [
     BrowserModule,

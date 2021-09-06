@@ -13,6 +13,7 @@ import { VideoContentComponent } from './pages/student/contents/video-content/vi
 import { TestComponent } from './pages/student/contents/test/test.component';
 import { ImageComponent } from './pages/student/contents/image/image.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { UploadGroupComponent } from './pages/professor/upload-group/upload-group.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,9 @@ const routes: Routes = [
   },
   {
     path: 'homeProfessor', component:HomeProfessorComponent
+  },
+  {
+    path: 'uploadGroup', component:UploadGroupComponent
   },
   {
     path: 'homeProfessor/group', component:GroupComponent
