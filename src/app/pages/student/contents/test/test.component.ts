@@ -38,6 +38,7 @@ export class TestComponent implements OnInit {
       
       this.enviarPreguntas();
     });
+
   }
 
   start(){

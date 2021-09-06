@@ -36,10 +36,9 @@ export class SubjectsService {
   }
 
   getTestSubject(){
-    return this.db.collection("materias").doc("WgWzoabaQUfn5qIz2slV").get();
+    return this.db.collection("contenidos").doc("aBGRf0u6mgMV28lD21ZK").get();
   }
 
-  
 
   metodologia = {
     name:"Metodologia de la programación",
