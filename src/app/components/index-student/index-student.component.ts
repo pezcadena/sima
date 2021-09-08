@@ -17,23 +17,21 @@ export class IndexStudentComponent implements OnInit {
   constructor(private rute:Router,private index:SubjectsService) { }
 
   ngOnInit(): void {
-   /*  this.select(0,true);
-    console.log("init Selection",this.selection); */
-    
     this.selection = this.subject.sections[0].select;
     this.selection = this.index.getIndex();
+    if(!(this.selection>=0)){
+      this.selection = 1;
+    }
+    this.select(this.selection);
   }
 
-  select(index:number,init:boolean){
+  select(index:number){
     this.subject.sections[0].select = index;
     this.selection = index;
-    console.log("Out",this.subject);
+    console.log("Index Cambia",this.subject);
     this.subjectOut.emit(this.subject);
     this.index.saveIndex(index);
 
-    if (this.content && !init) {
-      this.rute.navigate(['/subject',2]);
-    }
   }
 
 }

@@ -22,6 +22,10 @@ export class SubjectStudentComponent implements OnInit {
     this.getSesion();
   }
 
+  ngOnDestroy(){
+    console.log("Saliendo");
+  }
+
   getSesion(){
     this.auth.obtenerSesion().then(res=>{
       this.sesion = res;
