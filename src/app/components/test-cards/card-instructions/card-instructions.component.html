@@ -1,7 +1,12 @@
 <div class="card bg-secondary text-white rounded-3 shadow" style="height: 90%;">
     <div class="card-body p-4">
         <h1 class="card-title fw-bold text-primary">Indicaciónes</h1>
-        <ul class="mt-4">
+        <ul *ngIf="inteligencia" class="mt-4">
+            <li>La evaluación consta de 6 preguntas</li>
+            <li>Selecciona según tus preferencias</li>
+            <li>No hay malas respuestas</li>
+        </ul>
+        <ul *ngIf="!inteligencia" class="mt-4">
             <li>La evaluación consta de 10 preguntas</li>
             <li>Selecciona alguna de las cuatro opciones para contestar</li>
             <li>Buena suerte</li>

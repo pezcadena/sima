@@ -41,6 +41,9 @@
             <h4 class="fw-bold text-secondary my-3">Configuración</h4>
             <div class="row">
                 <div class="col-12 mb-2">
+                    <a class="btn btn-primary btn-xl text-white" style="width: 100%;" [routerLink]="['/testInteligencias']" role="button"> Test de inteligencias </a>
+                </div>
+                <div class="col-12 mb-2">
                     <a class="btn btn-primary btn-xl text-white" style="width: 100%;" href="#" role="button"> Cambiar Contraseña </a>
                     <form   [formGroup]="form"
                             (submit)="submitForm()" 

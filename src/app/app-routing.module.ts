@@ -14,6 +14,7 @@ import { TestComponent } from './pages/student/contents/test/test.component';
 import { ImageComponent } from './pages/student/contents/image/image.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { UploadGroupComponent } from './pages/professor/upload-group/upload-group.component';
+import { TestInteligenciasComponent } from './pages/student/contents/test-inteligencias/test-inteligencias.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,9 @@ const routes: Routes = [
   },
   {
     path: 'homeStudent', component:HomeStudentComponent
+  },
+  {
+    path: 'testInteligencias', component:TestInteligenciasComponent
   },
   {
     path: 'subject/:subject', component:SubjectStudentComponent

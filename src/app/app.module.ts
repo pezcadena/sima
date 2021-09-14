@@ -56,6 +56,8 @@ import { StudentAdminComponent } from './pages/admin/student-admin/student-admin
 import { ProfessorAdminComponent } from './pages/admin/professor-admin/professor-admin.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { UploadGroupComponent } from './pages/professor/upload-group/upload-group.component';
+import { TestInteligenciasComponent } from './pages/student/contents/test-inteligencias/test-inteligencias.component';
+import { CardQuestionInteligenciaComponent } from './components/test-cards/card-question-inteligencia/card-question-inteligencia.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +105,8 @@ import { UploadGroupComponent } from './pages/professor/upload-group/upload-grou
     ProfessorAdminComponent,
     AdminComponent,
     UploadGroupComponent,
+    TestInteligenciasComponent,
+    CardQuestionInteligenciaComponent,
   ],
   imports: [
     BrowserModule,

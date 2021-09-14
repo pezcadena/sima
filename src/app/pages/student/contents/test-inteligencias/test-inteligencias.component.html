@@ -1,0 +1,16 @@
+<app-navbar-student></app-navbar-student>
+
+<div class="m-0 p-4">
+    <h6 class="text-secondary mb-0 fw-bold">SIMA</h6>
+    <h4 class="text-primary fw-bold">Test de inteligencias</h4>
+    <div class="px-5 pt-4" style="height: 28rem;">
+        <app-card-instructions [inteligencia] ="true" (startEmitter)="start()" *ngIf="!startTest"></app-card-instructions>
+        <app-card-question-inteligencia 
+        *ngIf="startTest && questionNumber<6" 
+        [questionNumber]="questionNumber"
+        [question]="questions[questionNumber]"
+        (emitter)="questionEmitter($event)"
+        ></app-card-question-inteligencia>
+        <app-card-results *ngIf="questionNumber>5" [inteligencias]="true"></app-card-results>
+    </div>
+</div>

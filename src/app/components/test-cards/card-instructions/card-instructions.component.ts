@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card-instructions',
@@ -8,6 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class CardInstructionsComponent implements OnInit {
 
   @Output() startEmitter = new EventEmitter<any>();
+  @Input() inteligencia = false;
 
   constructor() { }
 

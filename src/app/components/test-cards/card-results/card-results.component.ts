@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,11 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardResultsComponent implements OnInit {
 
   @Input() results:any[]=[];
+  @Input() inteligencias:boolean=false;
   corrects:number=0;
   total:number=0;
 
 
-  constructor() { }
+  constructor(private location:Location) { }
 
   ngOnInit(): void {
     this.total = this.results.length;
@@ -21,6 +23,10 @@ export class CardResultsComponent implements OnInit {
         this.corrects++;
       }
     });
+  }
+
+  atras(){
+    this.location.back();
   }
 
 }
