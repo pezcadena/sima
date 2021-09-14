@@ -70,9 +70,6 @@ export class LoginComponent implements OnInit {
       console.log( res.data() );
       this.datosUsuarioLogeado = res.data();
       
-      localStorage.setItem('tipo_usuario',res.data().tipo_usuario);
-      localStorage.setItem('nombre_completo',res.data().nombre_completo);
-
       // Verificar si el usuario ya confirmo su correo
       if( await this.verificarCorreoConfirmado() ){
         console.log("redirecciono al usuario");
@@ -200,7 +197,7 @@ export class LoginComponent implements OnInit {
         photoURL: "https://firebasestorage.googleapis.com/v0/b/sima-web-fcc.appspot.com/o/fcc_logo.png?alt=media&token=3e04a5c1-e726-4ba6-a244-a639265e6667"
       }).then(() => {
         // Update successful
-        this._authService.crearNodoBase( this.datosUsuarioLogeado.matricula,  this.datosUsuarioLogeado.nombre_completo, this.datosUsuarioLogeado.tipo_usuario );
+        this._authService.crearNodoBase( this.datosUsuarioLogeado.matricula,  this.datosUsuarioLogeado.nombre_completo, this.datosUsuarioLogeado.tipo_usuario, this.usuarioLogeado.email );
         resolve( true );
       }).catch((error:any) => {
         // An error occurred
