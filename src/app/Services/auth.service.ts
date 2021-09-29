@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
+import Swal from 'sweetalert2';
+import { Usuario } from '../interfaces/usuario';
 
 
 @Injectable({
@@ -11,27 +13,32 @@ export class AuthService {
   constructor(  private fireAuth: AngularFireAuth,
                 private db: AngularFirestore ) {}
 
-  sesionUsuario:any = null;
 
 
   /*===========================================================
-        Métodos para sesiones
+   //*     Métodos para sesiones
   ===========================================================*/
-  nuevoRegistro( correo:string, password:string ):Promise<any>  {
+  nuevoRegistro( correo:string, password:string ):Promise<any> {
     return this.fireAuth.createUserWithEmailAndPassword(correo, password);
   }
 
   obtenerSesion():Promise<any>{
     return new Promise( (resolve,reject) => {
-      this.fireAuth.onAuthStateChanged( (usuario:any) =>{
+      this.fireAuth.onAuthStateChanged( async (usuario:any) =>{
         if ( usuario ) {
-          let obj_usuario = new Object({
-            displayName: usuario.displayName,
-            email: usuario.email,
-            photoURL: usuario.photoURL,
-            lastSignInTime: usuario.metadata.b,
+          // let obj_usuario:any = new Object({
+          //   displayName: usuario.displayName,
+          //   email: usuario.email,
+          //   photoURL: usuario.photoURL,
+          //   lastSignInTime: usuario.metadata.b,
+          // });
+          localStorage.setItem( 'displayName', usuario.displayName );
+          localStorage.setItem( 'email', usuario.email );
+          localStorage.setItem( 'photo', usuario.photoURL );
+           (await this.obtenerDatosTemporales(usuario.email)).subscribe(  (res:any) => {
+            localStorage.setItem( 'tipo_usuario', res.data().tipo_usuario );
+            localStorage.setItem( 'matricula', res.data().matricula );
           });
-          this.sesionUsuario = obj_usuario;
           resolve(usuario);
         } else {
           // console.log("no existe usuario");
@@ -46,12 +53,12 @@ export class AuthService {
   }
 
   cerrarSesion():Promise<void>{
-    this.sesionUsuario = null;
+    localStorage.clear();
     return this.fireAuth.signOut();
   }
 
   /*===========================================================
-        MEtodos para creación de usuario nuevo
+   //*     MEtodos para creación de usuario nuevo
   ===========================================================*/
   guardarDatosTemporales( matricula:string, nombre_completo:string, tipo_usuario:string, correo:string ) {
     this.db.collection("usuarios_temporales").doc( correo ).set({
@@ -61,13 +68,14 @@ export class AuthService {
     });
   }
 
-  async obtenerDatosTemporales( correo:string ) {
+  async obtenerDatosTemporales( correo:string )  {
     return this.db.collection("usuarios_temporales").doc( correo ).get();
   }
 
+  //!Terminar
   borrarDatosTemporales(){
     /*===========================================================
-          PRUEBAS
+     //*     PRUEBAS
     ===========================================================*/
     this.db.collection("usuarios_temporales").doc( "ulises.gomezr@alumno.buap.mx" ).update({
 
@@ -100,12 +108,53 @@ export class AuthService {
     });
   }
 
-  /*===========================================================
-        Metodos para recuperar y actualizar información del usuario
-  ===========================================================*/
+//*===========================================================
+//* Funciones del usuario
+//*===========================================================
+  setNuevoPassword ( password:string ) {
 
-  obtenerDatosUsuario( email:string ){
+    this.fireAuth.onAuthStateChanged( (usuario:any) =>{
+      usuario.updatePassword(password)
+      .then(() => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'La contraseña se actualizo correctamente. ',
+          showConfirmButton: true,
+          confirmButtonColor: '#3085d6',
+          timer: 5000
+        });
 
+      }).catch( (error:any) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Problemas al actualizar la contraseña, intenta nuevamente.',
+          showConfirmButton: true,
+          confirmButtonColor: '#3085d6',
+          timer: 5000
+        });
+        //LOG:
+        console.log( error );
+      });
+    })
+ 
+    
+  }
+
+  obtenerDatosBasicosUsuario():Promise<any> {
+
+    return new Promise( (resolve,reject) =>{
+      const email:string | null = localStorage.getItem("email") ;
+      const tipo_usuario:string | null = localStorage.getItem("tipo_usuario");
+      if( email !== null && tipo_usuario !== null ){
+         this.db.collection( tipo_usuario ).doc( email ).get().subscribe( resp =>{
+          resolve( resp.data() );
+        })
+      }else{
+        reject(null);
+      }
+    });
   }
 
 }

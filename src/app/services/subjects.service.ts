@@ -34,7 +34,7 @@ export class SubjectsService {
 
     return contenido;
   }
-
+//IMPORTANTE:
   getTestSubject(){
     return this.db.collection("contenidos").doc("aBGRf0u6mgMV28lD21ZK").get();
   }

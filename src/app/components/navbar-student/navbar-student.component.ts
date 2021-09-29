@@ -10,11 +10,16 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarStudentComponent implements OnInit {
 
   exp = 0;
-
+  displayName: string | null = "";
+  photo: string | null = "";
   constructor(  private _authService: AuthService,
-                private router: Router ) { }
+                private router: Router ) {
+                  this.displayName  = localStorage.getItem('displayName');
+                  this.photo  = localStorage.getItem('photo');
+                }
 
   ngOnInit(): void {
+    
   }
 
   plusExp(){

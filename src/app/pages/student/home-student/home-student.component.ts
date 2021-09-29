@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 import { Notification } from 'src/app/interfaces/notification';
 import { Subject } from '../../../interfaces/subject';
+import { Aviso, Usuario } from '../../../interfaces/usuario';
 
 @Component({
   selector: 'app-home-student',
@@ -14,16 +15,14 @@ import { Subject } from '../../../interfaces/subject';
 })
 export class HomeStudentComponent implements OnInit {
   
+  form!: FormGroup;
+  emailUsuario: string | null = "";
+
   constructor(  private _authService: AuthService,
                 private router: Router,
                 private fb:FormBuilder ) { 
-                  this.sesion = this._authService.sesionUsuario;
                   this.createNewForm();
                 }
-  
-  form!: FormGroup;
-  sesion: any = null;
-  
 
 
   subjects : Subject[] = [
@@ -35,11 +34,18 @@ export class HomeStudentComponent implements OnInit {
   ]
 
 
-  ngOnInit(): void {
-    //LOG:
-  console.log( this.sesion );
+  ngOnInit (): void {
+    this.emailUsuario = localStorage.getItem("email");
+    this._authService.obtenerDatosBasicosUsuario().then(  ( res:Usuario ) => {
+      //*Cargar avisos
+      res.avisos?.forEach( (obj:Aviso) => {
+        let nuevoObj:Notification = { message: obj.mensaje, active: obj.visto }
+        this.notifications.push(nuevoObj);
+      })
+    })
   }
 
+  //!borrar
   accion(){
     this._authService.borrarDatosTemporales();
   }
@@ -52,8 +58,7 @@ export class HomeStudentComponent implements OnInit {
   }
 
   submitForm(){
-    //LOG:
-    console.log( this.form );
+    
     if( this.form.controls["password1"].value != this.form.controls["password2"].value ){
       this.form.setErrors({invalid:true});
     }
@@ -69,9 +74,11 @@ export class HomeStudentComponent implements OnInit {
       });
       this.form.markAllAsTouched();
       
-      return;
     }else{
-
+    //LOG:
+    console.log( this.form );
+    this._authService.setNuevoPassword( this.form.controls["password1"].value )
+    //!Enviar nueva contraseña
     }
   }
 
