@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
 import Swal from 'sweetalert2';
-import { Usuario } from '../interfaces/usuario';
 
 
 @Injectable({
@@ -88,7 +87,7 @@ export class AuthService {
   }
 
   crearNodoBase( matricula:string, nombre_completo:string, tipo_usuario:string, email:string){
-    this.db.collection(tipo_usuario).doc(email).set({
+    let usuarioNuevo:any = {
       matricula,
       nombre_completo,
       tipo_usuario,
@@ -104,8 +103,15 @@ export class AuthService {
         p5_lectura: ["L004","interpersonal",false],
         p6_video: ["V001","musical",true],
         contenido: "esquema"
-        }],
-    });
+        }]
+    }
+
+    if( tipo_usuario === "profesores" ){
+      delete usuarioNuevo.test_habilidades;
+      delete usuarioNuevo.conexiones;
+    }
+
+    this.db.collection(tipo_usuario).doc(email).set(usuarioNuevo);
   }
 
 //*===========================================================

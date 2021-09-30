@@ -47,7 +47,8 @@ export class HomeStudentComponent implements OnInit {
 
   //!borrar
   accion(){
-    this._authService.borrarDatosTemporales();
+    // this._authService.nuevoRegistro( "adrianerx@hotmail.it", "12345678" );
+    // this._authService.borrarDatosTemporales();
   }
 
   createNewForm(){

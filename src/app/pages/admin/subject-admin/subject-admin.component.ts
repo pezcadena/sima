@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { AdminService } from '../../../Services/admin.service';
 import Swal from 'sweetalert2';
 
 
@@ -11,13 +12,16 @@ import Swal from 'sweetalert2';
 export class SubjectAdminComponent implements OnInit {
 
   form!: FormGroup;
-  constructor(  private fb:FormBuilder, ){
+  materias: any[] = [];
+  constructor(  private fb:FormBuilder,
+                private _adminService: AdminService ){
       
     this.createNewForm();
 
   }
 
   ngOnInit(): void {
+    this.obtenerMaterias();
   }
 
 
@@ -49,9 +53,69 @@ export class SubjectAdminComponent implements OnInit {
       return;
     }
 
-    console.log( this.form.value );
+    this._adminService.crearMateriaAdmin( this.form.value )
+      .then( resp =>{
+        this.ngOnInit();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Materia creada correctamente.',
+          showConfirmButton: true,
+          confirmButtonColor: '#3085d6',
+          timer: 3000
+        });
+      }).catch( error => {
+        console.log( error ); 
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Problemas al crear la materia, intenta nuevamente.',
+          showConfirmButton: true,
+          confirmButtonColor: '#3085d6',
+          timer: 3000
+        });
+      });
     
   }
 
+  obtenerMaterias(){
+    this._adminService.obtenerMateriasAdmin()
+    .subscribe( (querySnapshot) => {
+      
+      let newObj:Object = {};
+      querySnapshot.forEach((doc) => {
+          Object.assign( newObj, doc.data() );
+          Object.assign( newObj, { id: doc.id } );
+          this.materias.push( newObj );
+          newObj = {};
+      });
+    });
+  }
+
+  eliminarMateria( idMateria:string ){
+    console.log( idMateria );
+    this._adminService.eliminarMateriaAdmin( idMateria )
+    .then(() => {
+      this.ngOnInit();
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'La materia se elimino correctamente.',
+        showConfirmButton: true,
+        confirmButtonColor: '#3085d6',
+        timer: 3000
+      });
+    }).catch((error) => {
+        console.error("Error removing document: ", error);
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Problemas al aliminar la materia, intenta nuevamente.',
+          showConfirmButton: true,
+          confirmButtonColor: '#3085d6',
+          timer: 3000
+        });
+    });
+  }
 
 }

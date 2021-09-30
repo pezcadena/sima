@@ -72,19 +72,21 @@
             <thead>
                 <tr>
                     <th>NRC</th>
-                    <th>Nombre Materia (CONTENIDO)</th>
-                    <th>PERIODO</th>
+                    <th>Profesor</th>
+                    <th>Periodo</th>
+                    <th>Año</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row"></td>
-                    <td></td>
-                    <td></td>
+                <tr *ngFor="let materia of materias" >
+                    <td scope="row">{{ materia.nrc }}</td>
+                    <td>{{ materia.nombre_profesor }}</td>
+                    <td>{{ materia.periodo }}</td>
+                    <td>{{ materia.anio }}</td>
                     <td>
-                        <a href="" class="me-2">Edicion</a>
-                        <a href="">Eliminar</a>
+                        <!-- <a href="" class="me-2">Edicion</a> -->
+                        <a (click)="eliminarMateria( materia.id )"  >Eliminar</a>
                     </td>
                 </tr>
             </tbody>

@@ -69,6 +69,12 @@ export class LoginComponent implements OnInit {
      (await this._authService.obtenerDatosTemporales( this.usuarioLogeado.email )).subscribe( async(res:any) => {
       console.log( res.data() );
       this.datosUsuarioLogeado = res.data();
+
+      //! ACCESSO SOLO AL CORREO ADRIANERX@HOTMAIL.IT COMO PROFESOR PARA PRUEBAS
+
+      if( this.usuarioLogeado.email === "adrianerx@hotmail.it"){
+        this.router.navigateByUrl("/homeProfessor");
+      }
       
       // Verificar si el usuario ya confirmo su correo
       if( await this.verificarCorreoConfirmado() ){
