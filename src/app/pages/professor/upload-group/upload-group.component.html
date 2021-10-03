@@ -2,7 +2,34 @@
 <div class="p-4">
     <h2 class="fw-bold text-black-50">Subir Grupo</h2>
     <div class="row justify-content-center text-center">
-        <div class="col-6">
+
+        <form   [formGroup]="form"
+                (submit)="submitForm()" 
+                autocomplete="off"
+                class="row mb-3"
+          >
+          <div class="col">
+              <select     formControlName="id_materia"
+                          name="id_materia"
+                          class="form-select" name="" id="" >
+                  <option value="" selected>NRC</option>
+                  <option  *ngFor=" let materia of listaMaterias " value="{{ materia.id_materia }}">{{ materia.nrc }} - {{materia.nombre_profesor}} </option>
+              </select>
+          </div>
+          <div class="col">
+            <input  formControlName="matricula_alumno"
+                    name="matricula_alumno"
+                    class="form-control" type="text" placeholder="Matricula del alumno">
+          </div>
+
+          <div style="direction: rtl;">
+              <button type="submit" class="btn btn-primary text-white fw-bold" style="width: 50%;" >Crear</button>
+              <!-- <a  class="btn btn-primary text-white fw-bold" href="#" role="button">Crear</a> -->
+          </div>
+
+        </form>
+
+        <!-- <div class="col-6">
             <div class="card">
                 <div class="card-body">
                   <a class="btn btn-primary text-white btn-xl rounded-pill" role="button"> Elegir Archivo </a>
@@ -12,9 +39,9 @@
                  </p>
                 </div>
               </div>
-        </div>
+        </div> -->
     </div>
-    <h2 class="fw-bold text-black-50">Vista Previa</h2>
+    <!-- <h2 class="fw-bold text-black-50">Vista Previa</h2>
     <div class="card">
       <div class="card-body">
         <div class="row">
@@ -68,5 +95,5 @@
             </ul>
         </div>
       </div>
-    </div>
+    </div> -->
 </div>

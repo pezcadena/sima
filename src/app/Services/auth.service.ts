@@ -76,10 +76,16 @@ export class AuthService {
     /*===========================================================
      //*     PRUEBAS
     ===========================================================*/
-    this.db.collection("usuarios_temporales").doc( "ulises.gomezr@alumno.buap.mx" ).update({
 
-
+    this.db.collection( "matriculas" ).doc( "201512345" ).set({
+      hola: "hola"
     });
+
+
+    // this.db.collection("usuarios_temporales").doc( "ulises.gomezr@alumno.buap.mx" ).update({
+
+
+    // });
     // this.db.collection("alumnos").doc( "201663354"  ).collection("materias").doc("nrc_12345").get().subscribe( (data) => {
     //   //LOG:
     //   console.log( data.data() );
@@ -112,6 +118,9 @@ export class AuthService {
     }
 
     this.db.collection(tipo_usuario).doc(email).set(usuarioNuevo);
+    this.db.collection( "matriculas" ).doc( matricula ).set({
+      email
+    });
   }
 
 //*===========================================================
