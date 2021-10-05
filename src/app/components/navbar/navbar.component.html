@@ -1,0 +1,27 @@
+<nav class="p-2 
+            m-0 
+            row 
+            align-items-center 
+            bg-secondary 
+            border-bottom 
+            border-primary 
+            border-3
+">
+    <div class="col-auto" style="height: 50px;">
+        <img class="" style="height: 100%;" src="{{ photo }}" alt="">
+    </div>
+    <div class="col-auto">
+        <div class="text-white fw-bold">
+            {{ displayName }}
+        </div>
+        <div class="colorGris">
+            <small class="fw-bold text-primary">{{rolName}}</small>
+        </div>
+    </div>
+    <div class="col-auto">
+        <a class="btn btn-primary btn-xl rounded-pill text-white" [routerLink]="['/homeStudent']" role="button"> Inicio </a>
+    </div>
+    <div class="col d-flex justify-content-end">
+        <div><a  (click)="cerrarSesion()" class="fw-bold text-decoration-none link-primary" href="">Salir</a></div>
+    </div>
+</nav>

@@ -58,6 +58,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { UploadGroupComponent } from './pages/professor/upload-group/upload-group.component';
 import { TestInteligenciasComponent } from './pages/student/contents/test-inteligencias/test-inteligencias.component';
 import { CardQuestionInteligenciaComponent } from './components/test-cards/card-question-inteligencia/card-question-inteligencia.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import { CardQuestionInteligenciaComponent } from './components/test-cards/card-
     UploadGroupComponent,
     TestInteligenciasComponent,
     CardQuestionInteligenciaComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
