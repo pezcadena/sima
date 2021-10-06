@@ -6,7 +6,7 @@ export interface Usuario {
   nombre_completo: string;
   progreso_materias: [ PgMateria ];
   materias_activas?:any;
-  test_habilidades?:any[];
+  test_habilidades?:any;
 }
 
 export interface Aviso {

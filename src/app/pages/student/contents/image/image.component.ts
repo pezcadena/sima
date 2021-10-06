@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Usuario } from 'src/app/interfaces/usuario';
+import { AuthService } from 'src/app/services/auth.service';
 import { SubjectsService } from 'src/app/services/subjects.service';
 
 @Component({
@@ -12,8 +14,9 @@ export class ImageComponent implements OnInit {
   subject:any;
   content:any;
   idc:number=111;
-
-  constructor(private activatedRoute: ActivatedRoute, private subjects: SubjectsService) { }
+  basicDataUser:Usuario | undefined;
+  
+  constructor(private activatedRoute: ActivatedRoute, private subjects: SubjectsService, private auth:AuthService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -23,7 +26,15 @@ export class ImageComponent implements OnInit {
       console.log("content",this.content);
       
       this.idc = params.idc;
+      this.getBasicData();
     })
+  }
+
+  getBasicData(){
+    this.auth.obtenerDatosBasicosUsuario().then( ( usuario:Usuario )=>{
+      this.basicDataUser = usuario;
+      console.log( this.basicDataUser );
+    } );
   }
 
 }

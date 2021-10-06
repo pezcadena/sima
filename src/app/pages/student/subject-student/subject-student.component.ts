@@ -44,7 +44,9 @@ export class SubjectStudentComponent implements OnInit {
         this.router.navigate(["/testInteligencias"]);
       } else {
         // De otra manera comprueba el tipo de material a mostrar.
-        this.basicDataUser.materias_activas[0].material = this.basicDataUser.test_habilidades?.pop().contenido;
+        let temporal = this.basicDataUser.test_habilidades.slice();
+        this.basicDataUser.materias_activas[0].material = temporal.pop().contenido;
+        this.auth.guardarDatosBasicosUsuario(this.basicDataUser);
       }
     } );
   }

@@ -1,6 +1,6 @@
 export interface TestContenidosResultados {
     intento:number;
-    tipo_contenido_asignado: string;
+    tipo_contenido_asignado: number;
     preguntas: PreguntasResultados[];
     aprobado: boolean
 }

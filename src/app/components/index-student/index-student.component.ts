@@ -18,9 +18,9 @@ export class IndexStudentComponent implements OnInit {
 
   constructor(private rute:Router,private index:SubjectsService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.selection = this.subject.sections[0].select;
-    this.selection = this.index.getIndex();
+    this.selection = await this.index.getIndex().then();
     if(!(this.selection>=0)){
       this.selection = 1;
     }

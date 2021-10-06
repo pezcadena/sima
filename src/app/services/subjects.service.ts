@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Usuario } from '../interfaces/usuario';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SubjectsService {
 
-  constructor(private db: AngularFirestore) { }
+  constructor(private db: AngularFirestore, private auth:AuthService) { }
 
   saveIndex(index:number){
     var oIndex = {
@@ -15,9 +17,13 @@ export class SubjectsService {
     localStorage.setItem("index",JSON.stringify(oIndex));
   }
 
-  getIndex(){
-    var res = JSON.parse(localStorage.getItem("index") || '{}');
-    return res.number;
+  async getIndex(){
+    let usuario:Usuario = await this.auth.obtenerDatosBasicosUsuario().then();
+    let index = usuario.materias_activas[0].tema;
+    if ( index == 0) {
+      return index
+    } 
+    return index-1
   }
 
   getSubject(id:number){

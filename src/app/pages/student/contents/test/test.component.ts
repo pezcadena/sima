@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PreguntasResultados, TestContenidosResultados } from 'src/app/interfaces/test-contenidos-resultados';
+import { Usuario } from 'src/app/interfaces/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { SubjectsService } from 'src/app/services/subjects.service';
 import { TestDataService } from 'src/app/services/test-data.service';
@@ -25,12 +26,14 @@ export class TestComponent implements OnInit {
   idc:any;
   preguntasResultados:PreguntasResultados[]=[];
   aprobado:boolean=false;
+  basicDataUser!: Usuario;
 
   constructor( private activatedRoute: ActivatedRoute, private subjects: SubjectsService, private auth:AuthService, private testDataService:TestDataService ) { }
 
   ngOnInit(): void {
     this.getSesion();
     this.getparams();
+    this.getBasicData();
     this.getTest();
   }
 
@@ -41,6 +44,13 @@ export class TestComponent implements OnInit {
 
       this.testDataService.esNuevo(this.sesion.email,this.idc,this.testName);
     });
+  }
+
+  getBasicData(){
+    this.auth.obtenerDatosBasicosUsuario().then( ( usuario:Usuario )=>{
+      this.basicDataUser = usuario;
+      console.log( this.basicDataUser );
+    } );
   }
 
   getparams(){
@@ -179,12 +189,21 @@ export class TestComponent implements OnInit {
   }
 
   sendResults(){
+    
+    let temporal = this.basicDataUser.test_habilidades.slice();
+
     var results : TestContenidosResultados = {
       intento : this.testDataService.getIntentos(this.idc),
-      tipo_contenido_asignado: "aunno",
+      tipo_contenido_asignado: temporal.pop().contenido,
       aprobado: this.aprobado,
       preguntas: this.preguntasResultados
     }
+
+    if ( this.aprobado ) {
+      this.basicDataUser.materias_activas[0].tema++;
+      this.auth.guardarDatosBasicosUsuario(this.basicDataUser);
+    }
+
     this.testDataService.setResultado(this.sesion.email,this.idc,results);
   }
 
