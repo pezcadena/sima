@@ -1,11 +1,15 @@
 <div class="container p-2 pt-4">
     <h5 class="fw-bold text-secondary">Índice</h5>
+    
     <div *ngFor="let section of subject?.sections">
         <a class="fw-bold text-primary" [routerLink]="['/subject',2]">{{section.name}}</a>
+        
         <ul class="p-2" style="list-style: none;">
             <li *ngFor="let part of section.parts; let i = index" class="mb-2">
-                <a [ngClass]="i == selection ? 'text-primary':'text-dark'" (click)="select(i)" >{{part}}</a>
+                <a [ngClass]="clase(i)" (click)="select(i)" >{{part}}</a>
             </li>
         </ul>
+
     </div>
+
 </div>

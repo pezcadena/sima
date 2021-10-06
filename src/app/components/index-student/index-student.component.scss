@@ -7,3 +7,8 @@ a{
 a:hover{
     text-decoration: underline !important;
 }
+
+.desabilitado{
+    pointer-events: none !important;
+    opacity: 0.65;
+}

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/interfaces/usuario';
 import { SubjectsService } from 'src/app/services/subjects.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class IndexStudentComponent implements OnInit {
 
   @Input() subject:any;
   @Input() content:boolean=false;
+  @Input() user:Usuario | undefined;
   @Output() subjectOut = new EventEmitter<any>();
   selection:number=0;
 
@@ -31,6 +33,20 @@ export class IndexStudentComponent implements OnInit {
     console.log("Index Cambia",this.subject);
     this.subjectOut.emit(this.subject);
     this.index.saveIndex(index);
+
+  }
+
+  clase(i:number){
+
+    if (this.user?.materias_activas[0].tema >= i+1) {
+      if ( i == this.selection ) {
+        return 'text-primary';
+      }
+      
+      return 'text-dark';
+    } else {
+      return 'desabilitado';
+    }
 
   }
 

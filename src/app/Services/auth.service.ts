@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
 import Swal from 'sweetalert2';
+import { Usuario } from '../interfaces/usuario';
 
 
 @Injectable({
@@ -170,6 +171,14 @@ export class AuthService {
         reject(null);
       }
     });
+  }
+
+  guardarDatosBasicosUsuario( data:Usuario ){
+    const email:string | null = localStorage.getItem("email") ;
+    const tipo_usuario:string | null = localStorage.getItem("tipo_usuario");
+    if( email !== null && tipo_usuario !== null ){
+      this.db.collection( tipo_usuario ).doc( email ).set( data );
+    }
   }
 
 }
