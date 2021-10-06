@@ -23,10 +23,10 @@ export class TestInteligenciaService {
     video = this.añadirKeys(video);
     
     questions.push(esquema[Math.random() * esquema.length | 0]);
-    questions.push(esquema[Math.random() * esquema.length | 0]);
-    questions.push(lectura[Math.random() * lectura.length | 0]);
     questions.push(lectura[Math.random() * lectura.length | 0]);
     questions.push(video[Math.random() * video.length | 0]);
+    questions.push(esquema[Math.random() * esquema.length | 0]);
+    questions.push(lectura[Math.random() * lectura.length | 0]);
     questions.push(video[Math.random() * video.length | 0]);
     
 
@@ -46,6 +46,57 @@ export class TestInteligenciaService {
     });  
 
     return arrayfinal;
+  }
+
+  crearResultados( results:any[],fecha:Date ){
+    // Recordatorio de que los tipos de inteligencia son;
+    // 1: Lectura
+    // 2: Video
+    // 3: Esquema
+
+    let arregloIntelegencias = [];
+    let contenido = 1;
+
+    if ( results[0].respuesta && results[3].respuesta ) {
+      console.log("Esquema");
+      arregloIntelegencias.push(3);
+    }
+    if ( results[1].respuesta && results[4].respuesta ) {
+      console.log("Lectura");
+      arregloIntelegencias.push(1);
+    }
+    if ( results[2].respuesta && results[5].respuesta ) {
+      console.log("Video");
+      arregloIntelegencias.push(2);
+    }
+
+    switch ( arregloIntelegencias.length ) {
+      case 0:
+        arregloIntelegencias = [1,2,3];
+        contenido = arregloIntelegencias[Math.random() * arregloIntelegencias.length | 0];
+        break;
+      case 1:
+        contenido = arregloIntelegencias[0];
+        break;
+      default:
+        contenido = arregloIntelegencias[Math.random() * arregloIntelegencias.length | 0];
+        break;
+    }
+    console.log("Contenido",contenido);
+    
+
+    let resultadosFinales = {
+      fecha_test : fecha,
+      p1_esquema : results[0],
+      p2_lectura : results[1],
+      p3_video : results[2],
+      p4_esquema : results[3],
+      p5_lectura : results[4],
+      p6_video : results[5],
+      contenido: contenido
+    }
+
+    return resultadosFinales;
   }
 
   async sendResultado(email:string,resultadoFinal:TestHabilidades){

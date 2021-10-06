@@ -52,24 +52,12 @@ export class TestInteligenciasComponent implements OnInit {
 
     if(this.questionNumber == 6){
       console.log("FINALIZADO");
-      this.crearResultados();
+      this.resultadosFinales = this._testIntelifenciaService.crearResultados( this.results,this.fecha );
       this._testIntelifenciaService.sendResultado(this.sesion.email,this.resultadosFinales);
     }
   }
 
-  crearResultados(){
-
-    this.resultadosFinales = {
-      fecha_test : this.fecha,
-      p1_esquema : this.results[0],
-      p2_lectura : this.results[1],
-      p3_video : this.results[2],
-      p4_esquema : this.results[3],
-      p5_lectura : this.results[4],
-      p6_video : this.results[5],
-      contenido: "aunnofuncionajaja"
-    }
-  }
+  
 
 
 }

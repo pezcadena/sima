@@ -5,6 +5,7 @@ export interface Usuario {
   matricula: string;
   nombre_completo: string;
   progreso_materias: [ PgMateria ];
+  materias_activas?:any;
 }
 
 export interface Aviso {

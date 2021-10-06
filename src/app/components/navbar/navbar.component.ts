@@ -17,10 +17,20 @@ export class NavbarComponent implements OnInit {
                 private router: Router ) {
                   this.displayName  = localStorage.getItem('displayName');
                   this.photo  = localStorage.getItem('photo');
+                  this.rolName = this.getRolName( localStorage.getItem('tipo_usuario') );
                 }
 
   ngOnInit(): void {
     
+  }
+
+  getRolName( rolName:string | null ){
+    switch (rolName) {
+      case 'alumnos':
+        return 'Estudiante'
+      default:
+        return 'Docente';
+    }
   }
 
   cerrarSesion(){

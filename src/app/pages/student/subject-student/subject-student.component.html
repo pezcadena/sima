@@ -26,7 +26,7 @@
             </div>
             <h3 class="my-4 fw-bold text-secondary">{{partName}}</h3>
             <div class="mb-2" *ngFor="let content of subject?.sections[0].partsContent[subject?.sections[0].select]">
-                <app-card-content [content]="content"></app-card-content>
+                <app-card-content [content]="content" *ngIf="comprobarContenido(content)"></app-card-content>
             </div>
         </div>
     </div>

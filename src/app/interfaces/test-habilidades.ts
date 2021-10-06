@@ -6,7 +6,7 @@ export interface TestHabilidades {
     p4_esquema?: RespuestaHabilidades;
     p5_lectura?: RespuestaHabilidades;
     p6_video?: RespuestaHabilidades;
-    contenido?: string;
+    contenido?: number;
 }
 
 export interface RespuestaHabilidades {
