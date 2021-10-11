@@ -29,9 +29,7 @@ export class HomeStudentComponent implements OnInit {
     {id:2,name:"Metodologia de la programación", professor:"Judit Villalba",contentComplete:14,contentTotal:56}
   ]
 
-  notifications : Notification[] = [
-    {message:"Bienvenido a SIMA, te invitamos a explorar tus materias",active:true}
-  ]
+  notifications: Notification[] = [];
 
 
   ngOnInit (): void {

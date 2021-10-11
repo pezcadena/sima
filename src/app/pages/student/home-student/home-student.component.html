@@ -37,24 +37,29 @@
         <div class="container p-4">
             <h4 class="fw-bold text-secondary mb-2">Avisos</h4>
                 <button (click)="accion()" class="btn btn-primary m-2" >clickme</button>
-                <app-notification *ngFor="let notification of notifications" [notification]="notification" ></app-notification>
+                <app-notification *ngFor="let notification of notifications.slice().reverse() | slice:0:3 ; let i = index" [notification]="notification" [index]="i" ></app-notification>
             <h4 class="fw-bold text-secondary my-3">Configuración</h4>
             <div class="row">
                 <div class="col-12 mb-2">
                     <a class="btn btn-primary btn-xl text-white" style="width: 100%;" [routerLink]="['/testInteligencias']" role="button"> Test de inteligencias </a>
                 </div>
                 <div class="col-12 mb-2">
-                    <a class="btn btn-primary btn-xl text-white" style="width: 100%;" href="#" role="button"> Cambiar Contraseña </a>
-                    <form   [formGroup]="form"
-                            (submit)="submitForm()" 
-                            
-                    >
-                        <input  formControlName="password1"
-                                name="password1" class="rounded-pill" style="width: 100%;" type="password" placeholder="Nueva contraseña">
-                        <input  formControlName="password2"
-                                name="password2" class="rounded-pill" style="width: 100%;" type="password" placeholder="Repite nueva contraseña">
-                        <button class="btn btn-primary" type="submit" >Enviar</button>
-                    </form>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <a class="btn btn-primary btn-xl text-white" style="width: 100%;" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" role="button"> Cambiar Contraseña </a>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <form   [formGroup]="form"
+                                (submit)="submitForm()">
+                                    <input  formControlName="password1"
+                                            name="password1" class="rounded-pill mt-2 border-primary border-1" style="width: 100%;" type="password" placeholder="Nueva contraseña">
+                                    <input  formControlName="password2"
+                                            name="password2" class="rounded-pill mt-2 border-primary border-1" style="width: 100%;" type="password" placeholder="Repite nueva contraseña">
+                                    <button class="btn btn-outline-primary mt-2 btn-xl w-100" type="submit" >Guardar</button>
+                                </form>
+                            </div>
+                        </div>
+                      </div>
+                    
                 </div>
                 <div class="col-12">
                     <!-- <a class="btn btn-primary btn-xl text-white" style="width: 100%;" href="#" role="button"> Cambiar Imagen </a> -->
