@@ -15,7 +15,7 @@ export class SubjectStudentComponent implements OnInit {
   progress:number=0;
   partName:string="Lección";
   sesion:any;
-  basicDataUser:Usuario | undefined;
+  basicDataUser:Usuario | any;
 
   constructor( private activatedRoute: ActivatedRoute, private subjects: SubjectsService, private auth:AuthService, private router:Router ) { }
 

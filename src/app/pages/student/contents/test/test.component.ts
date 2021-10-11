@@ -26,7 +26,7 @@ export class TestComponent implements OnInit {
   idc:any;
   preguntasResultados:PreguntasResultados[]=[];
   aprobado:boolean=false;
-  basicDataUser!: Usuario;
+  basicDataUser: Usuario | any;
 
   constructor( private activatedRoute: ActivatedRoute, private subjects: SubjectsService, private auth:AuthService, private testDataService:TestDataService ) { }
 

@@ -5,7 +5,7 @@ export interface Usuario {
   matricula: string;
   nombre_completo: string;
   progreso_materias: [ PgMateria ];
-  materias_activas?:any;
+  materias_activas?:[ MateriasActivas ];
   test_habilidades?:any;
 }
 
@@ -17,6 +17,13 @@ export interface Aviso {
 export interface Conexion {
   fecha: number;
   duracion: number;
+}
+
+interface MateriasActivas {
+  id_materia: string,
+  meterial: number,
+  tema: number,
+  unidad: number,
 }
 
 export interface PgMateria {

@@ -18,7 +18,7 @@ export class SubjectsService {
   }
 
   async getIndex(){
-    let usuario:Usuario = await this.auth.obtenerDatosBasicosUsuario().then();
+    let usuario:Usuario | any = await this.auth.obtenerDatosBasicosUsuario().then();
     let index = usuario.materias_activas[0].tema;
     if ( index == 0) {
       return index

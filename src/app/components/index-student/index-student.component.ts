@@ -12,7 +12,7 @@ export class IndexStudentComponent implements OnInit {
 
   @Input() subject:any;
   @Input() content:boolean=false;
-  @Input() user:Usuario | undefined;
+  @Input() user:Usuario | any;
   @Output() subjectOut = new EventEmitter<any>();
   selection:number=0;
 

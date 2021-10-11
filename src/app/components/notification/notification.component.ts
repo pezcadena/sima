@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Notification } from 'src/app/interfaces/notification';
-import { Usuario } from 'src/app/interfaces/usuario';
+import { Aviso, Usuario } from 'src/app/interfaces/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,9 +9,9 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NotificationComponent implements OnInit {
 
-  @Input() notification:Notification = {
-    message:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo voluptatum",
-    active:true,
+  @Input() notification:Aviso = {
+    mensaje:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo voluptatum",
+    visto:false,
   }
   @Input() index:number = 0;
 
@@ -21,13 +20,17 @@ export class NotificationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  verNoti(){
-    if (!this.notification.active) {
-      this._authService.obtenerDatosBasicosUsuario().then(  ( res:Usuario ) => {
-        res.avisos![this.index].visto = true;
-        this.notification.active = true;
-        this._authService.guardarDatosBasicosUsuario(res);
-      });
+  /**
+  * Modifica el parametro visto de la notificación al darle click.
+  */
+  verNoti(): void{
+    if (!this.notification.visto) {
+      
+      let usuario : Usuario = this._authService.getUserBasicData();
+      usuario.avisos![this.index].visto = true;
+      this.notification.visto = true;
+      this._authService.guardarDatosBasicosUsuario(usuario);
+      
     }
   }
 

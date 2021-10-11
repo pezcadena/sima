@@ -20,24 +20,39 @@ export class HomeProfessorComponent implements OnInit {
     {name:"Matodologia de la programación-2021-2", students:32,contentComplete:14,contentTotal:56}
   ]
 
-  notifications : Notification[] = [];
-
   form!: FormGroup;
+  usuario:Usuario | any;
+  notifications: Aviso[] = [];
 
-  constructor(private _authService: AuthService,
-    private router: Router,
-    private fb:FormBuilder) { }
+  constructor(  private _authService: AuthService,
+                private router: Router,
+                private fb:FormBuilder 
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     this.createNewForm();
-    this._authService.obtenerDatosBasicosUsuario().then(  ( res:Usuario ) => {
-      //*Cargar avisos
-      res.avisos?.forEach( (obj:Aviso) => {
-        let nuevoObj:Notification = { message: obj.mensaje, active: obj.visto }
-        this.notifications.push(nuevoObj);
-      })
-    })
+    this.getUserBasicData();
+    // this._authService.obtenerDatosBasicosUsuario().then(  ( res:Usuario ) => {
+    //   //*Cargar avisos
+    //   res.avisos?.forEach( (obj:Aviso) => {
+    //     let nuevoObj:Notification = { message: obj.mensaje, active: obj.visto }
+    //     this.notifications.push(nuevoObj);
+    //   })
+    // })
+
   }
+
+  getUserBasicData(){
+    this._authService.subscribeUserBasicData().then( ()=>{
+      this.usuario = this._authService.getUserBasicData();
+       //*Cargar avisos
+      this.usuario.avisos?.forEach( (aviso:Aviso) => {
+        this.notifications.push(aviso);
+      })
+    } );
+  }
+
+  // Funciones de cambio de contraseña ( posiblemente se cambien a un servicio )
 
   createNewForm(){
     this.form = this.fb.group({

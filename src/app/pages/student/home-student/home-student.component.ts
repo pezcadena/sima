@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-
-import { Notification } from 'src/app/interfaces/notification';
 import { Subject } from '../../../interfaces/subject';
 import { Aviso, Usuario } from '../../../interfaces/usuario';
 
@@ -16,31 +14,31 @@ import { Aviso, Usuario } from '../../../interfaces/usuario';
 export class HomeStudentComponent implements OnInit {
   
   form!: FormGroup;
-  emailUsuario: string | null = "";
-
-  constructor(  private _authService: AuthService,
-                private router: Router,
-                private fb:FormBuilder ) { 
-                  this.createNewForm();
-                }
-
-
+  usuario:Usuario | any;
+  notifications: Aviso[] = [];
+  
   subjects : Subject[] = [
     {id:2,name:"Metodologia de la programación", professor:"Judit Villalba",contentComplete:14,contentTotal:56}
   ]
-
-  notifications: Notification[] = [];
-
+  
+  constructor(  private _authService: AuthService,
+                private router: Router,
+                private fb:FormBuilder 
+              ) {}
 
   ngOnInit (): void {
-    this.emailUsuario = localStorage.getItem("email");
-    this._authService.obtenerDatosBasicosUsuario().then(  ( res:Usuario ) => {
-      //*Cargar avisos
-      res.avisos?.forEach( (obj:Aviso) => {
-        let nuevoObj:Notification = { message: obj.mensaje, active: obj.visto }
-        this.notifications.push(nuevoObj);
+    this.createNewForm();
+    this.getUserBasicData();
+  }
+
+  getUserBasicData(){
+    this._authService.subscribeUserBasicData().then( ()=>{
+      this.usuario = this._authService.getUserBasicData();
+       //*Cargar avisos
+      this.usuario.avisos?.forEach( (aviso:Aviso) => {
+        this.notifications.push(aviso);
       })
-    })
+    } );
   }
 
   //!borrar
@@ -49,6 +47,8 @@ export class HomeStudentComponent implements OnInit {
     // this._authService.borrarDatosTemporales();
     this.router.navigate(["/testInteligencias"]);
   }
+
+  // Funciones de cambio de contraseña ( posiblemente se cambien a un servicio )
 
   createNewForm(){
     this.form = this.fb.group({
