@@ -21,15 +21,30 @@
     <div class="col-5">
         <div class="container p-4">
             <h4 class="fw-bold mb-2 text-secondary">Avisos</h4>
-                <app-notification *ngFor="let notification of notifications" [notification]="notification" ></app-notification>
+                <app-notification *ngFor="let notification of notifications.slice().reverse() | slice:0:3 ; let i = index" [notification]="notification" [index]="i"></app-notification>
             <h4 class="fw-bold my-3 text-secondary">Configuración</h4>
             <div class="row">
                 <div class="col-12 mb-2">
-                    <a class="btn btn-primary btn-xl text-white" style="width: 100%;" href="#" role="button"> Cambiar Contraseña </a>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <a class="btn btn-primary btn-xl text-white" style="width: 100%;" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" role="button"> Cambiar Contraseña </a>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <form   [formGroup]="form"
+                                (submit)="submitForm()">
+                                    <input  formControlName="password1"
+                                            name="password1" class="rounded-pill mt-2 border-primary border-1" style="width: 100%;" type="password" placeholder="Nueva contraseña">
+                                    <input  formControlName="password2"
+                                            name="password2" class="rounded-pill mt-2 border-primary border-1" style="width: 100%;" type="password" placeholder="Repite nueva contraseña">
+                                    <button class="btn btn-outline-primary mt-2 btn-xl w-100" type="submit" >Guardar</button>
+                                </form>
+                            </div>
+                        </div>
+                      </div>
+                    
                 </div>
-                <div class="col-12">
+                <!-- <div class="col-12">
                     <a class="btn btn-primary btn-xl text-white" style="width: 100%;" href="#" role="button"> Cambiar Imagen </a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
