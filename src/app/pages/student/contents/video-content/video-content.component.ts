@@ -21,8 +21,8 @@ export class VideoContentComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       console.log("params",params);
-      this.subject = this.subjects.getSubject(params.subject);
-      this.content = this.subjects.getContenidos(params.idc);
+      this.subject = this.subjects.getInfoMateriaLocal(params.subject);
+      this.content = this.subjects.getContenidoLocal(params.idc);
       console.log("content",this.content);
       
       this.idc = params.idc;

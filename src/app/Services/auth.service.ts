@@ -195,7 +195,7 @@ export class AuthService {
       const tipo_usuario:string | null = localStorage.getItem("tipo_usuario");
       if( email !== null && tipo_usuario !== null ){
         this.db.collection( tipo_usuario ).doc( email ).snapshotChanges().subscribe( resp =>{
-          console.log("Data basica leida de la base", resp.payload.data());
+          console.log("Data basica leida de la base");
           this.userBasicData = resp.payload.data();
           resolve();
        });

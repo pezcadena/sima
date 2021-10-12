@@ -2,17 +2,17 @@
 
 <div class="row m-0 p-0">
     <div class="col-2">
-        <app-index-student [subject]="subject" [user]="basicDataUser" (subjectOut)="indexOut($event)" ></app-index-student>
+        <app-index-student [subject]="infoMateriaLocal" [user]="basicDataUser" (subjectOut)="indexOut($event)" ></app-index-student>
     </div>
     <div class="col">
         <div class="container p-4">
-            <h1 class="fw-bold text-secondary">{{subject?.name}}</h1>
+            <h1 class="fw-bold text-secondary">{{infoMateriaLocal?.name}}</h1>
             <div class="row">
                 <div class="col">
-                    <p class="fw-light">Tu profesor: {{subject?.profesor}}</p>
+                    <p class="fw-light">Tu profesor: {{subject?.professor}}</p>
                 </div>
                 <div class="col-auto">
-                    <p class="fw-light">{{subject?.contentComplete}} de {{subject?.contentTotal}} contenidos</p>
+                    <p class="fw-light">{{subject?.contentComplete}} de {{infoMateriaLocal?.contentTotal}} contenidos</p>
                 </div>
             </div>
             <div class="border 
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <h3 class="my-4 fw-bold text-secondary">{{partName}}</h3>
-            <div class="mb-2" *ngFor="let content of subject?.sections[0].partsContent[subject?.sections[0].select]">
+            <div class="mb-2" *ngFor="let content of arrayofContents">
                 <app-card-content [content]="content" *ngIf="comprobarContenido(content)"></app-card-content>
             </div>
         </div>

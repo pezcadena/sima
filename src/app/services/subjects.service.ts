@@ -11,13 +11,18 @@ import { AuthService } from './auth.service';
 export class SubjectsService {
 
   subjects : Subject[] = [];
+  usuario!:Usuario;
 
   constructor(private _db: AngularFirestore, 
               private _authService:AuthService
   ) { }
 
-  getUserBasicData(){
-    return this._authService.getUserBasicData();
+  async getUserBasicData(){
+    this.usuario = this._authService.getUserBasicData();
+    if( !this.usuario ){
+      await this._authService.subscribeUserBasicData().then();
+      this.usuario = this._authService.getUserBasicData();
+    }
   }
 
   // Funciones index
@@ -30,8 +35,9 @@ export class SubjectsService {
   }
 
   async getIndex(){
-    let usuario:Usuario = this.getUserBasicData();
-    let index = usuario.materias_activas![0].tema;
+    await this.getUserBasicData();
+
+    let index = this.usuario.materias_activas![0].tema;
     if ( index == 0) {
       return index
     } 
@@ -49,13 +55,15 @@ export class SubjectsService {
       const contenido = await this.getContenidoBase( materia.id_contenido ) ;
       const subject : Subject = {
         name:contenido.nombre_materia,
-        id:i,
+        id:materiasActivas[i].id_materia,
         professor:materia.nombre_profesor,
-        contentComplete: materiasActivas[i].tema,
+        contentComplete: materiasActivas[i].tema - 1,
         contentTotal:materia.total_temas
       }
       this.subjects.push( subject );
     }
+    
+    console.log("Subjects Creados");
     
   }
 
@@ -73,14 +81,27 @@ export class SubjectsService {
     return this.subjects;
   }
 
+  getSubject(id:string):Subject{
+    const find = this.subjects.find((subject:Subject) => subject.id == id);
 
-  // Funciones primigenias de materias
-
-  getSubject(id:number){
-    return this.metodologia;
+    return find as Subject;
   }
 
-  getContenidos(idc:string){
+
+
+  // Funciones de materias sobre contenido local
+
+  getInfoMateriaLocal(id:string){
+
+    switch (id) {
+      case "aBGRf0u6mgMV28lD21ZK":
+        return this.metodologia;   
+      default:
+        return this.metodologia;
+    }
+  }
+
+  getContenidoLocal(idc:string){
     var contenido = this.contenidosMetodologia[0];
     this.contenidosMetodologia.forEach(res=>{
       if (res.content.toString()==idc) {
@@ -91,16 +112,14 @@ export class SubjectsService {
     return contenido;
   }
 //IMPORTANTE:
-  getTestSubject(){
-    return this._db.collection("contenidos").doc("aBGRf0u6mgMV28lD21ZK").get();
+  getTestSubject( idContent:string ){
+    return this._db.collection("contenidos").doc( idContent ).get();
   }
 
 
   metodologia = {
     name:"Metodologia de la programación",
-    profesor:"Judit Villalba",
-    contentComplete:0,
-    contentTotal:17,
+    contentTotal:10,
     sections: [
       {
         name:"Diseño estructurado usando diagramas de flujo y pseudocódigo",

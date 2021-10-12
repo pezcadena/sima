@@ -12,8 +12,8 @@ export class TestDataService {
 
   constructor(private db: AngularFirestore) { }
 
-  esNuevo(email:string,idc:string,nombreTema: string){
-    this.db.collection("alumnos").doc(email).collection("materias").doc("pruebaNRC").get().toPromise().then(res=>{
+  esNuevo(email:string,idc:string,nombreTema: string,nrc:string){
+    this.db.collection("alumnos").doc(email).collection("materias").doc(nrc).get().toPromise().then(res=>{
       var materia = res.data();
       if (materia![idc]) {
         console.log("Existe");
@@ -21,14 +21,14 @@ export class TestDataService {
       }
       else{
         console.log("No Existe"); 
-        this.crearTestContenido(email,idc,nombreTema);
+        this.crearTestContenido(email,idc,nombreTema,nrc);
       }
     });
   }
 
-  async crearTestContenido(email:string,idc:string, nombreTema: string){
+  async crearTestContenido(email:string,idc:string, nombreTema: string,nrc:string){
 
-    var res = await this.db.collection("alumnos").doc(email).collection("materias").doc("pruebaNRC").get().toPromise();
+    var res = await this.db.collection("alumnos").doc(email).collection("materias").doc(nrc).get().toPromise();
 
     var nuevo = res.data();
 
@@ -46,7 +46,7 @@ export class TestDataService {
 
     nuevo![idc] = estructura;
     this.infoMaterias = nuevo;
-    this.db.collection("alumnos").doc(email).collection("materias").doc("pruebaNRC").set(nuevo!).then(res=>{
+    this.db.collection("alumnos").doc(email).collection("materias").doc(nrc).set(nuevo!).then(res=>{
       console.log("crearestructura",res);
     });
   }
@@ -56,14 +56,14 @@ export class TestDataService {
     
   }
 
-  setResultado(email:string,idc:string, resultado:TestContenidosResultados){
+  setResultado(email:string,idc:string, resultado:TestContenidosResultados,nrc:string){
     this.infoMaterias[idc].resultados.push(resultado);
     if (resultado.aprobado) {
       this.infoMaterias[idc].tema_aprobado = true;
       var termino = new Date;
       this.infoMaterias[idc].fecha_termino = termino;
     }
-    this.db.collection("alumnos").doc(email).collection("materias").doc("pruebaNRC").set(this.infoMaterias);
+    this.db.collection("alumnos").doc(email).collection("materias").doc(nrc).set(this.infoMaterias);
   }
 
 }

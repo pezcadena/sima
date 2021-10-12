@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PreguntasResultados, TestContenidosResultados } from 'src/app/interfaces/test-contenidos-resultados';
-import { Usuario } from 'src/app/interfaces/usuario';
+import { MateriasActivas, Usuario } from 'src/app/interfaces/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { SubjectsService } from 'src/app/services/subjects.service';
 import { TestDataService } from 'src/app/services/test-data.service';
+import { Subject } from 'src/app/interfaces/subject';
+import { Materia } from 'src/app/interfaces/materias';
 
 @Component({
   selector: 'app-test',
@@ -13,7 +15,7 @@ import { TestDataService } from 'src/app/services/test-data.service';
 })
 export class TestComponent implements OnInit {
 
-  subject:any;
+  infoMateriaLocal:any;
   subjectName:string="";
   testName:string="";
   startTest:boolean=false;
@@ -26,47 +28,63 @@ export class TestComponent implements OnInit {
   idc:any;
   preguntasResultados:PreguntasResultados[]=[];
   aprobado:boolean=false;
-  basicDataUser: Usuario | any;
 
-  constructor( private activatedRoute: ActivatedRoute, private subjects: SubjectsService, private auth:AuthService, private testDataService:TestDataService ) { }
+  basicDataUser!: Usuario;
+  materiaActiva! : MateriasActivas;
+  idMateria!:string;
+  materia!: Materia;
+
+  constructor( private activatedRoute: ActivatedRoute, 
+              private _subjectsService: SubjectsService, 
+              private _authService:AuthService, 
+              private _testDataService:TestDataService 
+              ) { }
 
   ngOnInit(): void {
     this.getSesion();
     this.getparams();
     this.getBasicData();
-    this.getTest();
   }
 
   getSesion(){
-    this.auth.obtenerSesion().then(res=>{
+    this._authService.obtenerSesion().then(res=>{
       this.sesion = res;
-      console.log("Sesion",this.sesion);
-
-      this.testDataService.esNuevo(this.sesion.email,this.idc,this.testName);
+    });
+  }
+  
+  getparams(){
+    this.activatedRoute.params.subscribe(params=>{
+      this.infoMateriaLocal = this._subjectsService.getInfoMateriaLocal(params.subject);
+      this.idMateria = params.subject;
+      this.subjectName = this.infoMateriaLocal.name;
+      this.idc = params.idc
+      this.contentid = this.separaDigitos(params.idc);
+      console.log("contentid",this.contentid);
     });
   }
 
   getBasicData(){
-    this.auth.obtenerDatosBasicosUsuario().then( ( usuario:Usuario )=>{
-      this.basicDataUser = usuario;
-      console.log( this.basicDataUser );
+    this._authService.subscribeUserBasicData().then( async ()=>{
+      this.basicDataUser = this._authService.getUserBasicData();
+      console.log( "basicaDataUser",this.basicDataUser );
+      this.setMateriaActiva();
+      this.materia = await this._subjectsService.getMateriaBase(this.idMateria).then();
+
+      //Rellena variables locales
+      this.testName  = this.infoMateriaLocal.sections[this.materiaActiva.unidad-1].parts[this.contentid[1]-1];
+      this._testDataService.esNuevo(this.sesion.email,this.idc,this.testName,this.materia.nrc);
+      //Obtienen las preguntas de la base
+      this.getTest();
     } );
   }
 
-  getparams(){
-    this.activatedRoute.params.subscribe(params=>{
-      this.subject = this.subjects.getSubject(params.subject);
-      this.subjectName = this.subject.name;
-      this.idc = params.idc
-      this.contentid = this.separaDigitos(params.idc);
-      console.log("Parametros",this.contentid);
-      
-      this.testName  = this.subject.sections[0].parts[this.contentid[1]-1];
-    });
+  setMateriaActiva(){
+    this.materiaActiva = this.basicDataUser.materias_activas?.find((materia:MateriasActivas) => materia.id_materia == this.idMateria) as MateriasActivas;
   }
 
+
   getTest(){
-    this.subjects.getTestSubject().subscribe(res=>{
+    this._subjectsService.getTestSubject( this.materia.id_contenido ).subscribe(res=>{
       this.testSubject = res.data();
       console.log("TEST",this.testSubject);
       
@@ -78,6 +96,7 @@ export class TestComponent implements OnInit {
     this.startTest = true;
   }
 
+  // LA FORMA EN LA SE SELECIONAN LAS PREGUNTAS DEBE MEJORAR
   enviarPreguntas(){
 
     var contentid = 0;
@@ -193,18 +212,18 @@ export class TestComponent implements OnInit {
     let temporal = this.basicDataUser.test_habilidades.slice();
 
     var results : TestContenidosResultados = {
-      intento : this.testDataService.getIntentos(this.idc),
+      intento : this._testDataService.getIntentos(this.idc),
       tipo_contenido_asignado: temporal.pop().contenido,
       aprobado: this.aprobado,
       preguntas: this.preguntasResultados
     }
 
     if ( this.aprobado ) {
-      this.basicDataUser.materias_activas[0].tema++;
-      this.auth.guardarDatosBasicosUsuario(this.basicDataUser);
+      this.basicDataUser.materias_activas![this.materiaActiva.unidad-1].tema++;
+      this._authService.guardarDatosBasicosUsuario(this.basicDataUser);
     }
 
-    this.testDataService.setResultado(this.sesion.email,this.idc,results);
+    this._testDataService.setResultado(this.sesion.email,this.idc,results,this.materia.nrc);
   }
 
 }

@@ -9,7 +9,7 @@ import { Subject } from '../../interfaces/subject';
 export class CardSubjectComponent implements OnInit {
 
   @Input() subject: Subject = {
-    id:0,
+    id:"0",
     name: "Materia",
     professor: "Profesor",
     contentComplete:100,

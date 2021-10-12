@@ -21,7 +21,7 @@ export interface Conexion {
 
 export interface MateriasActivas {
   id_materia: string,
-  meterial: number,
+  material: number,
   tema: number,
   unidad: number,
 }

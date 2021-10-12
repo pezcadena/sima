@@ -17,7 +17,6 @@ export class HomeStudentComponent implements OnInit {
   form!: FormGroup;
   usuario!: Usuario;
   notifications: Aviso[] = [];
-  
   subjects : Subject[] = [];
   
   constructor(  private _authService: AuthService,

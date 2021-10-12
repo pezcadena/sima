@@ -1,5 +1,5 @@
 export interface Subject {
-    id:number,
+    id:string,
     name:string,
     professor:string,
     contentTotal: number,
