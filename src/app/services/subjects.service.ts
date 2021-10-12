@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Usuario } from '../interfaces/usuario';
+import { Materia } from '../interfaces/materias';
+import { Subject } from '../interfaces/subject';
+import { MateriasActivas, Usuario } from '../interfaces/usuario';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -8,7 +10,17 @@ import { AuthService } from './auth.service';
 })
 export class SubjectsService {
 
-  constructor(private db: AngularFirestore, private auth:AuthService) { }
+  subjects : Subject[] = [];
+
+  constructor(private _db: AngularFirestore, 
+              private _authService:AuthService
+  ) { }
+
+  getUserBasicData(){
+    return this._authService.getUserBasicData();
+  }
+
+  // Funciones index
 
   saveIndex(index:number){
     var oIndex = {
@@ -18,13 +30,51 @@ export class SubjectsService {
   }
 
   async getIndex(){
-    let usuario:Usuario | any = await this.auth.obtenerDatosBasicosUsuario().then();
-    let index = usuario.materias_activas[0].tema;
+    let usuario:Usuario = this.getUserBasicData();
+    let index = usuario.materias_activas![0].tema;
     if ( index == 0) {
       return index
     } 
     return index-1
   }
+
+  // Funciones Materias ( mejores )
+
+  async createSubjects(materiasActivas: MateriasActivas[] ){
+
+    this.subjects = [];
+
+    for (let i = 0; i < materiasActivas!.length; i++) {
+      const materia = await this.getMateriaBase( materiasActivas[i].id_materia ) ;
+      const contenido = await this.getContenidoBase( materia.id_contenido ) ;
+      const subject : Subject = {
+        name:contenido.nombre_materia,
+        id:i,
+        professor:materia.nombre_profesor,
+        contentComplete: materiasActivas[i].tema,
+        contentTotal:materia.total_temas
+      }
+      this.subjects.push( subject );
+    }
+    
+  }
+
+  async getMateriaBase( idMateria:string ):Promise<Materia>{
+    let data = await this._db.collection( "materias" ).doc( idMateria ).get().toPromise().then();
+    return data.data() as Materia;
+  }
+
+  async getContenidoBase( idContenido:string ):Promise<any>{
+    let data = await this._db.collection( "contenidos" ).doc( idContenido ).get().toPromise().then();
+    return data.data() as any;
+  }
+
+  getSubjects() : Subject[] {
+    return this.subjects;
+  }
+
+
+  // Funciones primigenias de materias
 
   getSubject(id:number){
     return this.metodologia;
@@ -42,7 +92,7 @@ export class SubjectsService {
   }
 //IMPORTANTE:
   getTestSubject(){
-    return this.db.collection("contenidos").doc("aBGRf0u6mgMV28lD21ZK").get();
+    return this._db.collection("contenidos").doc("aBGRf0u6mgMV28lD21ZK").get();
   }
 
 

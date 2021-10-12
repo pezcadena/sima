@@ -207,7 +207,7 @@ export class AuthService {
 
   }
 
-  getUserBasicData(){
+  getUserBasicData() : Usuario{
     return this.userBasicData;
   }
 

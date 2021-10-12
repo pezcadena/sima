@@ -4,7 +4,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Subject } from '../../../interfaces/subject';
-import { Aviso, Usuario } from '../../../interfaces/usuario';
+import { Aviso, MateriasActivas, Usuario } from '../../../interfaces/usuario';
+import { SubjectsService } from 'src/app/services/subjects.service';
 
 @Component({
   selector: 'app-home-student',
@@ -14,16 +15,15 @@ import { Aviso, Usuario } from '../../../interfaces/usuario';
 export class HomeStudentComponent implements OnInit {
   
   form!: FormGroup;
-  usuario:Usuario | any;
+  usuario!: Usuario;
   notifications: Aviso[] = [];
   
-  subjects : Subject[] = [
-    {id:2,name:"Metodologia de la programación", professor:"Judit Villalba",contentComplete:14,contentTotal:56}
-  ]
+  subjects : Subject[] = [];
   
   constructor(  private _authService: AuthService,
                 private router: Router,
-                private fb:FormBuilder 
+                private fb:FormBuilder,
+                private _subjectsService: SubjectsService 
               ) {}
 
   ngOnInit (): void {
@@ -37,7 +37,11 @@ export class HomeStudentComponent implements OnInit {
        //*Cargar avisos
       this.usuario.avisos?.forEach( (aviso:Aviso) => {
         this.notifications.push(aviso);
-      })
+      });
+      if ( this._subjectsService.getSubjects().length == 0 ) {
+        this._subjectsService.createSubjects(this.usuario.materias_activas as MateriasActivas[]);
+      }
+      this.subjects = this._subjectsService.getSubjects();
     } );
   }
 
