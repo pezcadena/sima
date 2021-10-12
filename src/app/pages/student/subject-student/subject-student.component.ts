@@ -102,9 +102,9 @@ export class SubjectStudentComponent implements OnInit {
   indexOut(event:any){
 
     this.infoMateriaLocal = event;
-    this.setArrayofContents();
-
+    
     try {
+      this.setArrayofContents();
       this.partName = this.infoMateriaLocal.sections[this.materiaActiva.unidad-1].parts[this.infoMateriaLocal.sections[this.materiaActiva.unidad-1].select];
     } catch (error) {
       

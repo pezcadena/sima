@@ -130,7 +130,7 @@ export class SubjectsService {
             {
               title:"Material Texto",
               type:"Texto",
-              preview:"assets/img/video.png",
+              preview:"assets/img/lectura.png",
               length:5,
               idc:111
             },
@@ -151,7 +151,7 @@ export class SubjectsService {
             {
               title:"Prueba de conocimientos",
               type:"Test",
-              preview:"assets/img/video.png",
+              preview:"assets/img/prueba.png",
               length:0,
               idc:114
             }
@@ -160,7 +160,7 @@ export class SubjectsService {
             {
               title:"Material Texto",
               type:"Texto",
-              preview:"assets/img/video.png",
+              preview:"assets/img/lectura.png",
               length:5,
               idc:121
             },
@@ -181,7 +181,7 @@ export class SubjectsService {
             {
               title:"Prueba de conocimientos",
               type:"Test",
-              preview:"assets/img/video.png",
+              preview:"assets/img/prueba.png",
               length:0,
               idc:124
             }
@@ -190,7 +190,7 @@ export class SubjectsService {
             {
               title:"Material Texto",
               type:"Texto",
-              preview:"assets/img/video.png",
+              preview:"assets/img/lectura.png",
               length:5,
               idc:131
             },
@@ -211,7 +211,7 @@ export class SubjectsService {
             {
               title:"Prueba de conocimientos",
               type:"Test",
-              preview:"assets/img/video.png",
+              preview:"assets/img/prueba.png",
               length:0,
               idc:134
             }
@@ -220,7 +220,7 @@ export class SubjectsService {
             {
               title:"Material Texto",
               type:"Texto",
-              preview:"assets/img/video.png",
+              preview:"assets/img/lectura.png",
               length:5,
               idc:141
             },
@@ -241,7 +241,7 @@ export class SubjectsService {
             {
               title:"Prueba de conocimientos",
               type:"Test",
-              preview:"assets/img/video.png",
+              preview:"assets/img/prueba.png",
               length:0,
               idc:144
             }
@@ -250,7 +250,7 @@ export class SubjectsService {
             {
               title:"Material Texto",
               type:"Texto",
-              preview:"assets/img/video.png",
+              preview:"assets/img/lectura.png",
               length:5,
               idc:151
             },
@@ -271,7 +271,7 @@ export class SubjectsService {
             {
               title:"Prueba de conocimientos",
               type:"Test",
-              preview:"assets/img/video.png",
+              preview:"assets/img/prueba.png",
               length:0,
               idc:154
             }
@@ -280,7 +280,7 @@ export class SubjectsService {
             {
               title:"Material Texto",
               type:"Texto",
-              preview:"assets/img/video.png",
+              preview:"assets/img/lectura.png",
               length:5,
               idc:161
             },
@@ -301,7 +301,7 @@ export class SubjectsService {
             {
               title:"Prueba de conocimientos",
               type:"Test",
-              preview:"assets/img/video.png",
+              preview:"assets/img/prueba.png",
               length:0,
               idc:164
             }
@@ -310,7 +310,7 @@ export class SubjectsService {
             {
               title:"Material Texto",
               type:"Texto",
-              preview:"assets/img/video.png",
+              preview:"assets/img/lectura.png",
               length:5,
               idc:171
             },
@@ -331,7 +331,7 @@ export class SubjectsService {
             {
               title:"Prueba de conocimientos",
               type:"Test",
-              preview:"assets/img/video.png",
+              preview:"assets/img/prueba.png",
               length:0,
               idc:174
             }
@@ -340,7 +340,7 @@ export class SubjectsService {
             {
               title:"Material Texto",
               type:"Texto",
-              preview:"assets/img/video.png",
+              preview:"assets/img/lectura.png",
               length:5,
               idc:181
             },
@@ -361,7 +361,7 @@ export class SubjectsService {
             {
               title:"Prueba de conocimientos",
               type:"Test",
-              preview:"assets/img/video.png",
+              preview:"assets/img/prueba.png",
               length:0,
               idc:184
             }
@@ -370,7 +370,7 @@ export class SubjectsService {
             {
               title:"Material Texto",
               type:"Texto",
-              preview:"assets/img/video.png",
+              preview:"assets/img/lectura.png",
               length:5,
               idc:191
             },
@@ -391,7 +391,7 @@ export class SubjectsService {
             {
               title:"Prueba de conocimientos",
               type:"Test",
-              preview:"assets/img/video.png",
+              preview:"assets/img/prueba.png",
               length:0,
               idc:194
             }
@@ -400,7 +400,7 @@ export class SubjectsService {
             {
               title:"Material Texto",
               type:"Texto",
-              preview:"assets/img/video.png",
+              preview:"assets/img/lectura.png",
               length:5,
               idc:1101
             },
@@ -421,7 +421,7 @@ export class SubjectsService {
             {
               title:"Prueba de conocimientos",
               type:"Test",
-              preview:"assets/img/video.png",
+              preview:"assets/img/prueba.png",
               length:0,
               idc:1104
             }
@@ -430,14 +430,14 @@ export class SubjectsService {
             {
               title:"Material Texto",
               type:"Texto",
-              preview:"assets/img/video.png",
+              preview:"assets/img/lectura.png",
               length:5,
               idc:1111
             },
             {
               title:"Prueba de conocimientos",
               type:"Test",
-              preview:"assets/img/video.png",
+              preview:"assets/img/prueba.png",
               length:0,
               idc:1114
             }
@@ -446,7 +446,7 @@ export class SubjectsService {
             {
               title:"Material Texto",
               type:"Texto",
-              preview:"assets/img/video.png",
+              preview:"assets/img/lectura.png",
               length:5,
               idc:1121
             },
@@ -467,7 +467,7 @@ export class SubjectsService {
             {
               title:"Prueba de conocimientos",
               type:"Test",
-              preview:"assets/img/video.png",
+              preview:"assets/img/prueba.png",
               length:0,
               idc:1124
             }

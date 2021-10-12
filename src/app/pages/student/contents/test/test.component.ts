@@ -203,7 +203,7 @@ export class TestComponent implements OnInit {
         return "assets/img/x-button.png"
       }
     } else {
-      return "assets/img/"+index+".png";
+      return "assets/img/"+(index+1)+".png";
     }
   }
 
