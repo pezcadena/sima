@@ -32,10 +32,6 @@ export class SubjectStudentComponent implements OnInit {
     this.getParams();
     this.getSesion();
   }
-
-  // ngOnChanges(){
-  //   this.setArrayofContents();
-  // }
   
   getParams(){
     this.activatedRoute.params.subscribe(params=>{
@@ -95,7 +91,7 @@ export class SubjectStudentComponent implements OnInit {
   }
 
   setArrayofContents(){
-    this.arrayofContents = this.infoMateriaLocal?.sections[this.materiaActiva.unidad-1].partsContent[this.infoMateriaLocal?.sections[this.materiaActiva.unidad-1].select]
+    this.arrayofContents = this.infoMateriaLocal?.sections[this.infoMateriaLocal.select[0]].partsContent[this.infoMateriaLocal?.select[1]]
   }
 
 
@@ -103,9 +99,10 @@ export class SubjectStudentComponent implements OnInit {
 
     this.infoMateriaLocal = event;
     
+    
     try {
       this.setArrayofContents();
-      this.partName = this.infoMateriaLocal.sections[this.materiaActiva.unidad-1].parts[this.infoMateriaLocal.sections[this.materiaActiva.unidad-1].select];
+      this.partName = this.infoMateriaLocal.sections[this.infoMateriaLocal.select[0]].parts[this.infoMateriaLocal.select[1]];
     } catch (error) {
       
     }
@@ -134,6 +131,7 @@ export class SubjectStudentComponent implements OnInit {
 
   setMateriaActiva(){
     this.materiaActiva = this.basicDataUser.materias_activas.find((materia:MateriasActivas) => materia.id_materia == this.idMateria);
+    this._subjectsService.setMateriaActiva(this.materiaActiva);
   }
 
   separaDigitos(numero:number):Array<number>{

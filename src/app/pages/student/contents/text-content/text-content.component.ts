@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { SubjectsService } from 'src/app/services/subjects.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-text-content',
@@ -17,7 +18,7 @@ export class TextContentComponent implements OnInit {
   idc:number=111;
   basicDataUser:Usuario | undefined;
 
-  constructor(private activatedRoute: ActivatedRoute, private subjects: SubjectsService, private auth:AuthService) { }
+  constructor(private activatedRoute: ActivatedRoute, private subjects: SubjectsService, private auth:AuthService,public location:Location) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{

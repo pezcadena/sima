@@ -12,6 +12,7 @@ export class SubjectsService {
 
   subjects : Subject[] = [];
   usuario!:Usuario;
+  materiaActiva!:MateriasActivas;
 
   constructor(private _db: AngularFirestore, 
               private _authService:AuthService
@@ -87,6 +88,13 @@ export class SubjectsService {
     return find as Subject;
   }
 
+  setMateriaActiva(materiaActiva:MateriasActivas){
+    this.materiaActiva = materiaActiva;
+  }
+
+  getMateriaActiva(){
+    return this.materiaActiva;
+  }
 
 
   // Funciones de materias sobre contenido local
@@ -120,11 +128,11 @@ export class SubjectsService {
   metodologia = {
     name:"Metodologia de la programación",
     contentTotal:10,
+    select:[0,0],
     sections: [
       {
         name:"Diseño estructurado usando diagramas de flujo y pseudocódigo",
         parts:["Estrategias de resolución de problemas","Analogías","Divide y vencerás","Arquitectura funcional y Algoritmos","Variables computacionales","Operaciones aritméticas, lógicas y expresiones","Diagramas de flujo","Pseudocódigo, prueba o traza del algoritmo","Estructura de secuencia","Estructura de control, condicional simple","Condicional doble, condicional múltiple","Estructura de repetición"],
-        select:0,
         partsContent:[
           [
             {
