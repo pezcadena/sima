@@ -3,11 +3,12 @@
 <div class="m-0 p-4">
     <h6 class="text-secondary mb-0 fw-bold">{{subjectName}}</h6>
     <h4 class="text-primary fw-bold">{{testName}}</h4>
-    <div class="px-5 pt-4" style="height: 28rem;">
+    
+    <div class="px-md-5 pt-md-4" style="height: 28rem;">
         <app-card-instructions (startEmitter)="start()" *ngIf="!startTest"></app-card-instructions>
         <app-card-question *ngIf="startTest && questionNumber<10" [questionNumber]="questionNumber" [question]="questions[questionNumber]" (emitter)="questionEmitter($event)"></app-card-question>
         <app-card-results *ngIf="questionNumber>9" [results]="results"></app-card-results>
-        <div class="mt-3 text-center">
+        <div class="my-3 text-center">
             <img *ngFor="let item of questions; index as i" [src]="questionIndicator(i)" class="me-1" style="width: 2rem;" alt="">
         </div>
     </div>

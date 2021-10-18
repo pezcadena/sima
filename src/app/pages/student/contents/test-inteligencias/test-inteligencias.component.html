@@ -3,7 +3,7 @@
 <div class="m-0 p-4">
     <h6 class="text-secondary mb-0 fw-bold">SIMA</h6>
     <h4 class="text-primary fw-bold">Test de inteligencias</h4>
-    <div class="px-5 pt-4" style="height: 28rem;">
+    <div class="px-md-5 pt-md-4" style="height: 28rem;">
         <app-card-instructions [inteligencia] ="true" (startEmitter)="start()" *ngIf="!startTest"></app-card-instructions>
         <app-card-question-inteligencia 
         *ngIf="startTest && questionNumber<6" 

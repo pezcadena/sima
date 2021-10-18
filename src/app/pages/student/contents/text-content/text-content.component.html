@@ -1,9 +1,9 @@
 <app-navbar></app-navbar>
 <div class="row m-0 p-0">
-    <div class="col-2">
+    <div class="col-md-2 order-2 order-md-1">
         <app-index-student [subject]="subject" [modo]="'content'" [idc]="idc"></app-index-student>
     </div>
-    <div class="col-10 px-0" [ngClass]="sepia ? 'bg-info':''">
+    <div class="col-md order-1 order-md-2 px-0" [ngClass]="sepia ? 'bg-info':''">
         <div class="p-4">
             <div class="row">
                 <div class="col-auto">
