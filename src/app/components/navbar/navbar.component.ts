@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   displayName: string | null = "";
   photo: string | null = "";
   rolName: string | null = "";
+  role:any;
 
   constructor(  private _authService: AuthService,
                 private router: Router ) {
@@ -27,8 +28,10 @@ export class NavbarComponent implements OnInit {
   getRolName( rolName:string | null ){
     switch (rolName) {
       case 'alumnos':
+        this.role = '/homeStudent'
         return 'Estudiante'
       default:
+        this.role = '/homeProfessor'
         return 'Docente';
     }
   }
