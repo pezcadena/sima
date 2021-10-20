@@ -57,7 +57,7 @@ const routes: Routes = [
     path: 'uploadGroup', component:UploadGroupComponent
   },
   {
-    path: 'homeProfessor/group', component:GroupComponent
+    path: 'group/:id', component:GroupComponent
   },
   {
     path: 'homeProfessor/group/student', component:StudentComponent

@@ -3,4 +3,5 @@ export interface Group {
     students:number,
     contentTotal: number,
     contentComplete:number,
+    id:string
 }

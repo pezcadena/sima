@@ -8,12 +8,7 @@ import { Group } from '../../interfaces/group';
 })
 export class CardGroupComponent implements OnInit {
 
-  @Input() group: Group = {
-    name: "Grupo",
-    students: 23,
-    contentComplete:100,
-    contentTotal:100
-  };
+  @Input() group!: Group;
 
   progress:number = 100;
 

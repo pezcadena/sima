@@ -14,7 +14,7 @@
             </div>
             
             <div *ngFor="let group of groups" class="mb-2">
-                <app-card-group [group]="group"></app-card-group>
+                <app-card-group [routerLink]="['/group',group.id]" [group]="group"></app-card-group>
             </div>
         </div>
     </div>

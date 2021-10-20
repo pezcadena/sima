@@ -45,7 +45,7 @@ export class HomeProfessorComponent implements OnInit {
 
       // Carga grupos
       if ( this._groupsService.getGroups().length == 0 ) {
-        await this._groupsService.createSubjects(this.usuario.matricula);
+        await this._groupsService.createGroups(this.usuario.matricula);
       }
       this.groups = this._groupsService.getGroups();
     } );
