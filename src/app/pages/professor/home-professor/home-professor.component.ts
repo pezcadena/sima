@@ -16,10 +16,7 @@ import { Group } from '../../../interfaces/group';
 })
 export class HomeProfessorComponent implements OnInit {
 
-  groups : Group[] = [
-    {name:"Matematicas-2021-1",students:24,contentComplete:43,contentTotal:50},
-    {name:"Matodologia de la programación-2021-2", students:32,contentComplete:14,contentTotal:56}
-  ]
+  groups : Group[] = [];
 
   form!: FormGroup;
   usuario!:Usuario;
