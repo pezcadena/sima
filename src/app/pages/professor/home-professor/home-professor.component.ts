@@ -5,6 +5,7 @@ import { Notification } from 'src/app/interfaces/notification';
 import { Subject } from 'src/app/interfaces/subject';
 import { Aviso, Usuario } from 'src/app/interfaces/usuario';
 import { AuthService } from 'src/app/services/auth.service';
+import { GroupsService } from 'src/app/services/groups.service';
 import Swal from 'sweetalert2';
 import { Group } from '../../../interfaces/group';
 
@@ -21,34 +22,35 @@ export class HomeProfessorComponent implements OnInit {
   ]
 
   form!: FormGroup;
-  usuario:Usuario | any;
+  usuario!:Usuario;
   notifications: Aviso[] = [];
 
   constructor(  private _authService: AuthService,
                 private router: Router,
-                private fb:FormBuilder 
+                private fb:FormBuilder,
+                private _groupsService: GroupsService
   ) {}
 
   ngOnInit (): void {
     this.createNewForm();
     this.getUserBasicData();
-    // this._authService.obtenerDatosBasicosUsuario().then(  ( res:Usuario ) => {
-    //   //*Cargar avisos
-    //   res.avisos?.forEach( (obj:Aviso) => {
-    //     let nuevoObj:Notification = { message: obj.mensaje, active: obj.visto }
-    //     this.notifications.push(nuevoObj);
-    //   })
-    // })
-
   }
 
   getUserBasicData(){
-    this._authService.subscribeUserBasicData().then( ()=>{
+    this._authService.subscribeUserBasicData().then( async ()=>{
       this.usuario = this._authService.getUserBasicData();
+      console.log("USER",this.usuario);
+      
        //*Cargar avisos
       this.usuario.avisos?.forEach( (aviso:Aviso) => {
         this.notifications.push(aviso);
-      })
+      });
+
+      // Carga grupos
+      if ( this._groupsService.getGroups().length == 0 ) {
+        await this._groupsService.createSubjects(this.usuario.matricula);
+      }
+      this.groups = this._groupsService.getGroups();
     } );
   }
 
