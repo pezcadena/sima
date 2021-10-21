@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Group } from '../interfaces/group';
+import { Usuario } from '../interfaces/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class GroupsService {
 
   groups : Group[] = [];
   group! : Group;
-  studentsList! : [];
+  studentsList! : Usuario[];
 
   constructor(
     private _db : AngularFirestore
@@ -42,6 +43,8 @@ export class GroupsService {
   }
 
   async createGroup( id:string ) {
+    console.log("Creando grupo");
+    
     let res = await (await this._db.collection("materias").doc(id).get().toPromise().then()).data() as any;
     let contenido : any = await (await this._db.collection("contenidos").doc(res.id_contenido).get().toPromise().then()).data();
     this.group = {
@@ -51,7 +54,16 @@ export class GroupsService {
       contentComplete: 0,
       id : res.id
     }
-    this.studentsList = res.lista_alumnos
+    await this.createStudentList( res.lista_alumnos );
+  }
+
+  async createStudentList( lista:any[] ){
+    this.studentsList = [];
+    for (let i = 0; i < lista.length; i++) {
+      let usuarioCorreo = await (await this._db.collection( "matriculas" ).doc( lista[i] ).get().toPromise()).data() as any;
+      let usuario = await (await this._db.collection( "alumnos" ).doc( usuarioCorreo.email ).get().toPromise()).data() as Usuario;
+      this.studentsList.push( usuario );
+    }
   }
 
   getGroup() : Group {
