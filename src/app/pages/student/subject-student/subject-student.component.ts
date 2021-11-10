@@ -71,7 +71,7 @@ export class SubjectStudentComponent implements OnInit {
       const indexMateriaActiva = this.basicDataUser.materias_activas.findIndex((materia:MateriasActivas) => materia.id_materia == this.idMateria);
       
       //Comprueba si es la primera vez entrando a la materia.
-      if ( this.getIdcUser() == 0 ) {
+      if ( this.basicDataUser.materias_activas[indexMateriaActiva].material == 0 ) {
         console.log("index",indexMateriaActiva);
         
         this.basicDataUser.materias_activas[indexMateriaActiva].unidad = 1;
