@@ -36,13 +36,13 @@
     <div class="col-md-4">
         <div class="container p-4">
             <h4 class="fw-bold text-secondary mb-2">Avisos</h4>
-                <button (click)="accion()" class="btn btn-primary m-2" >clickme</button>
+                <!-- <button (click)="accion()" class="btn btn-primary m-2" >clickme</button> -->
                 <app-notification *ngFor="let notification of notifications.slice().reverse() | slice:0:3 ; let i = index" [notification]="notification" [index]="i" ></app-notification>
             <h4 class="fw-bold text-secondary my-3">Configuración</h4>
             <div class="row">
-                <div class="col-12 mb-2">
+                <!-- <div class="col-12 mb-2">
                     <a class="btn btn-primary btn-xl text-white" style="width: 100%;" [routerLink]="['/testInteligencias']" role="button"> Test de inteligencias </a>
-                </div>
+                </div> -->
                 <div class="col-12 mb-2">
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item">

@@ -190,7 +190,7 @@ export class TestComponent implements OnInit {
       this.preguntasResultados.push(nuevo);
       index++;
     });
-    if (correcto>=6) {
+    if (correcto>=8) {
       this.aprobado=true;
     }
   }
