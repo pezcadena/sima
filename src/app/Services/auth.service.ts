@@ -80,9 +80,9 @@ export class AuthService {
      //*     PRUEBAS
     ===========================================================*/
 
-    this.db.collection( "matriculas" ).doc( "201512345" ).set({
-      hola: "hola"
-    });
+    // this.db.collection( "matriculas" ).doc( "201512345" ).set({
+    //   hola: "hola"
+    // });
 
 
     // this.db.collection("usuarios_temporales").doc( "ulises.gomezr@alumno.buap.mx" ).update({
@@ -95,7 +95,7 @@ export class AuthService {
     // });
   }
 
-  crearNodoBase( matricula:string, nombre_completo:string, tipo_usuario:string, email:string){
+  crearNodoBase( matricula:string, nombre_completo:string, tipo_usuario:string, email:string ){
     let usuarioNuevo:any = {
       matricula,
       nombre_completo,
@@ -112,7 +112,7 @@ export class AuthService {
         p5_lectura: ["L004","interpersonal",false],
         p6_video: ["V001","musical",true],
         contenido: "esquema"
-        }]
+      }]
     }
 
     if( tipo_usuario === "profesores" ){

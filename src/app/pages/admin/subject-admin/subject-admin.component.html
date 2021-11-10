@@ -24,11 +24,17 @@
                             class="form-control" type="text" placeholder="Nombre del profesor">
                 </div>
                 <div class="col">
+                    <input  formControlName="matricula_profesor"
+                            name="matricula_profesor"
+                            class="form-control" type="text" placeholder="Matrícula del profesor">
+                </div>
+                <div class="col">
                     <select     formControlName="id_contenido"
                                 name="id_contenido"
                                 class="form-select" name="" id="" >
                         <option value="" selected>Tipo de contenido</option>
-                        <option value="aBGRf0u6mgMV28lD21ZK">Metodologia de la Programacion</option>
+                        <option *ngFor="let contenido of contenidos" [value]="contenido.id_contenido" >{{ contenido.nombre_materia }}</option>
+
                     </select>
                 </div>
                 <div class="col">
@@ -45,7 +51,7 @@
                     <select     formControlName="anio"
                                 name="anio"
                                 class="form-select" name="" id="">
-                        <option value="" selected>Periodo</option>
+                        <option value="" selected>Año del periodo</option>
                         <option value="2021">2021</option>
                         <option value="2022">2022</option>
                         <option value="2023">2023</option>
@@ -55,8 +61,7 @@
                 </div>
 
                 <div style="direction: rtl;">
-                    <button type="submit" class="btn btn-primary text-white fw-bold" style="width: 50%;" >Crear</button>
-                    <!-- <a  class="btn btn-primary text-white fw-bold" href="#" role="button">Crear</a> -->
+                    <button type="submit" class="btn btn-primary text-white fw-bold mt-3" style="width: 100%;" >Crear</button>
                 </div>
 
             </form>

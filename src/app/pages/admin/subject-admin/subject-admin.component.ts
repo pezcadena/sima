@@ -13,6 +13,7 @@ export class SubjectAdminComponent implements OnInit {
 
   form!: FormGroup;
   materias: any[] = [];
+  contenidos: any[] = [];
   constructor(  private fb:FormBuilder,
                 private _adminService: AdminService ){
       
@@ -22,6 +23,7 @@ export class SubjectAdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerMaterias();
+    this.obtenerContenidos();
   }
 
 
@@ -29,6 +31,7 @@ export class SubjectAdminComponent implements OnInit {
     this.form = this.fb.group({
       nrc: ["", [ Validators.required ]],
       nombre_profesor: ["", [ Validators.required ]],
+      matricula_profesor: ["", [ Validators.required ]],
       id_contenido: ["", [ Validators.required ] ],
       periodo: ["", [ Validators.required ] ],
       anio: ["", [ Validators.required ] ],
@@ -52,9 +55,19 @@ export class SubjectAdminComponent implements OnInit {
       
       return;
     }
+    let nuevaMateria = {};
+    Object.assign( nuevaMateria, this.form.value );
+    Object.assign( nuevaMateria, { lista_alumnos:[] } );
 
-    this._adminService.crearMateriaAdmin( this.form.value )
-      .then( resp =>{
+    this.contenidos.forEach( contenido => {
+      if( contenido.id_contenido === this.form.controls["id_contenido"].value ){
+        Object.assign( nuevaMateria, { total_temas: contenido.total_temas } );
+      }
+    });
+
+
+    this._adminService.crearMateriaAdmin( nuevaMateria )
+      .then( resp => {
         this.ngOnInit();
         Swal.fire({
           position: 'center',
@@ -88,6 +101,22 @@ export class SubjectAdminComponent implements OnInit {
           Object.assign( newObj, { id: doc.id } );
           this.materias.push( newObj );
           newObj = {};
+      });
+    });
+  }
+
+  obtenerContenidos(){
+    this._adminService.obtenerContenidosAdmin()
+    .subscribe( (querySnapshot) => {
+      
+      let newObj:Object = {};
+      querySnapshot.forEach( ( doc:any ) => {
+
+        Object.assign( newObj, { id_contenido: doc.id } );
+        Object.assign( newObj, { nombre_materia: doc.data().nombre_materia } );
+        Object.assign( newObj, { total_temas: doc.data().total_temas } );
+        this.contenidos.push( newObj );
+        newObj = {};
       });
     });
   }

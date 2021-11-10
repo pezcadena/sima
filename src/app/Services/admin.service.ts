@@ -32,10 +32,28 @@ export class AdminService {
     
     // });
   }
+
+  obtenerContenidosAdmin(){
+
+    // return new Promise( (resolve,reject) =>{
+      return this.db.collection( "contenidos" ).get();
+      
+      // .subscribe( (querySnapshot) => {
+        
+        
+      //     querySnapshot.forEach((doc) => {
+      //         // doc.data() is never undefined for query doc snapshots
+      //         console.log(doc.id, " => ", doc.data());
+      //     });
+      
+      // });
+    
+    // });
+  }
   
 
   crearMateriaAdmin( nuevaMateria:Object ){
-    Object.assign( nuevaMateria, { lista_alumnos:[] } );
+    
     return this.db.collection( "materias" ).add( nuevaMateria );
 
   }
@@ -60,8 +78,8 @@ export class AdminService {
             this.db.collection('alumnos').doc( email ).update({
               materias_activas: [{
                 id_materia: idMateria,
-                unidad: 0,
-                tema: 0,
+                unidad: 1,
+                tema: 1,
                 material: 0
               }]
             }).then(()=>{

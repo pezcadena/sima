@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
 
   obtenerSesion(){
     this._authService.obtenerSesion()
-      .then( usuario =>{
+      .then( usuario => {
         console.log(usuario);
         this.usuarioLogeado = usuario;
         this.verificarSesion();
@@ -71,8 +71,7 @@ export class LoginComponent implements OnInit {
       this.datosUsuarioLogeado = res.data();
 
       //! ACCESSO SOLO AL CORREO ADRIANERX@HOTMAIL.IT COMO PROFESOR PARA PRUEBAS
-
-      if( this.usuarioLogeado.email === "adrianerx@hotmail.it"){
+      if( this.usuarioLogeado.email === "adrianerx@hotmail.it" ){
         this.router.navigateByUrl("/homeProfessor");
       }
       
@@ -166,8 +165,9 @@ export class LoginComponent implements OnInit {
              El usuario ya verifico su correo
        ===========================================================*/
  
-       console.log( 'Configurando primer inicio...' );
+       
        if( this.usuarioLogeado.displayName === null ){
+         console.log( 'Configurando primer inicio...' );
          Swal.fire({
            titleText: "Configurando primer inicio...",
            html: ` <i class="fas fa-spinner fa-spin fa-3x"></i> `,
@@ -196,7 +196,7 @@ export class LoginComponent implements OnInit {
   async actualizarDatosUsuario():Promise<boolean> {
     console.log( 'actualizando datos' );
     
-    return new Promise( (resolve)=>{
+    return new Promise( (resolve) => {
 
        this.usuarioLogeado.updateProfile({
         displayName: this.datosUsuarioLogeado.nombre_completo,
